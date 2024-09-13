@@ -24,7 +24,7 @@ function Popup({ onClose }) {
 
     {/* Image */}
     <img
-      src="/images/pop_up.png"
+      src={require("./earning_banner2.png")}
       alt="Promo"
       className="w-full h-[299px] rounded-t-lg object-contain"
     />
