@@ -21,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./earning_banner2.png');
+  /* background-image: url('./earning_banner2.png'); */
   background-position: center;
   background-size: cover;
   filter: blur(3px); /* Applies the blur effect to the background */
@@ -29,7 +29,7 @@
 }
 
 .swiper-slide img {
-  width: 200px; /* Set fixed width */
+  width: 250px; /* Set fixed width */
   height: 200px; /* Set fixed height to match width */
   object-fit: cover; /* Ensures the image fits within the dimensions */
   position: relative; /* Ensures the image stays above the blurred background */

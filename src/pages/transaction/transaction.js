@@ -51,7 +51,7 @@ function TransactionCompleted() {
   }, [location.state, authToken, transactionToken, fetchTransactionToken]);
 
   return (
-    <Layout title="Transaction Completed - Hype Drinks">
+    <Layout title="Transaction Completed - Earning Money">
       <div className="sm:w-2/5 h-screen mx-auto p-4 pb-16 bg-orange-300 text-white">
         <div className="flex justify-between">
           <div className="cursor-pointer" onClick={() => navigate(-1)}>

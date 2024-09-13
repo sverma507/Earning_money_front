@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ContackManager = () => {
   const navigate = useNavigate();
   return (
-    <Layout title={"Contact - Hype Drinks"}>
+    <Layout title={"Contact - Earning Money"}>
   <div className="bg-gradient-to-b w-full md:w-[40%] m-auto from-green-400 to-blue-500 min-h-screen grid place-items-center">
   <div className="w-full text-center flex flex-col items-center">
     <div

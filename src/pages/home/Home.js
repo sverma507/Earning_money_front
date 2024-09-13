@@ -54,7 +54,7 @@ function Home() {
   };
 
   return (
-    <Layout title={"Home - Hype Drinks"}>
+    <Layout title={"Home - Earning Money"}>
       <div className="sm:w-2/5 mx-auto bg-gradient-to-b from-purple-300 to-indigo-400  text-white pb-16">
       <div className='h-16 w-16  fixed z-50  top-28'>
         <div>

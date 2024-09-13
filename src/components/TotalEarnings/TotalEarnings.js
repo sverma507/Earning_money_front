@@ -7,9 +7,9 @@ const TotalEarnings = () => {
   const navigate = useNavigate();
 
   return (
-    <Layout title={'Total Earning - Hype Drinks'}>
+    <Layout title={'Total Earning - Earning Money'}>
     <div className="total-earning">
-  <div className="flex justify-between p-5 bg-gradient-to-b from-green-400 to-blue-500 text-white header-3d">
+  <div className="flex justify-between p-5 bg-gradient-to-b from-purple-400 to-blue-500 text-white header-3d">
   <div className="cursor-pointer font-bold text-lg text-white" onClick={() => navigate(-1)}><img
                   src={"/images/back.png"}
                   alt="right arrow"
@@ -20,21 +20,21 @@ const TotalEarnings = () => {
   </div>
   <img className="income-image" src="/images/income_logo.png" />
   <div className="earnings-list">
-    <div
+    {/* <div
       className="earning-item"
       onClick={() => {
         navigate("/users/user/bonus-earnings");
       }}
     >
       Activation Bonus
-    </div>
+    </div> */}
     <div
       className="earning-item"
       onClick={() => {
         navigate("/users/user/daily-income");
       }}
     >
-      Revenue Bonus
+      Product Bonus
     </div>
     <div
       className="earning-item"
@@ -42,7 +42,7 @@ const TotalEarnings = () => {
         navigate("/users/user/referral-income");
       }}
     >
-      Invitation Bonus
+      Salary 
     </div>
     <div
       className="earning-item"

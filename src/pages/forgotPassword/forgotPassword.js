@@ -34,7 +34,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <Layout title={"Forgot Password - Hype Drinks"}>
+    <Layout title={"Forgot Password - Earning Money"}>
       <div className=" bg-gradient-to-b from-blue-500 to-green-300 pb-16 h-fit sm:w-2/5 pt-6">
         <div
           // data-aos="flip-up"

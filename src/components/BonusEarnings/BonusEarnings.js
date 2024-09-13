@@ -38,9 +38,9 @@ const [bonusList, setBonusList] = useState([])
     },[])
 
   return (
-    <Layout title={'Bonus - Hype Drinks'}>
+    <Layout title={'Bonus - Earning Money'}>
     <div className='bonus-container'>
-    <div className="flex justify-between p-5   bg-gradient-to-b from-green-400 to-blue-500 text-white">
+    <div className="flex justify-between p-5   bg-gradient-to-b from-purple-400 to-blue-500 text-white">
           <div
             className="cursor-pointer text-xl"
             onClick={() => {

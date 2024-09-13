@@ -26,13 +26,13 @@ function HomeLinks() {
       link: '/users/user/withdrawl'
     },
     {
-      img: require("./monthly_salary.png"),
-      name: "Receive Revenue",
+      img: require("./receive revenue.png"),
+      name: "Receive Profit",
       link: '/users/user/my-products'
     },
    
     {
-      img: require("./team.png"),
+      img: require("./my-team.png"),
       name: "My Team",
       link: '/users/user/my-team'
     },
@@ -42,12 +42,12 @@ function HomeLinks() {
       link: '/users/user/invitation'
     },
     {
-      img: require("./weekly.png"),
+      img: require("./total-earning.png"),
       name: "Total Earning",
       link: 'users/user/total-earnings'
     },
     {
-      img: require("./bonus.png"),
+      img: require("./reedem-bonus.png"),
       name: "Reedem Bonus",
       link: '/users/user/bonus'
     },
@@ -66,7 +66,7 @@ function HomeLinks() {
   return (
     <div className="homelinkbg  shadow-lg shadow-blue-500   p-4">
       <div className='flex gap-2'>
-        <div data-aos="flip-right" className='flex gap-1 w-[80%] text-black text-sm text-center mt-3 bg-slate-300 p-2 rounded'>
+        <div data-aos="flip-right" className='flex gap-1 w-[100%] text-black text-sm text-center mt-3 bg-slate-300 p-2 rounded'>
           📢 
           <div style={{ width: 'calc(100% - 24px)', overflow: 'hidden', whiteSpace: 'nowrap' }}>
             <p style={{
@@ -76,24 +76,24 @@ function HomeLinks() {
               animation: 'marquee 6s linear infinite',
               whiteSpace: 'nowrap'
             }}>
-              Welcome to HYPE Drinks, we are launching in Spain, Dubai, India, Malaysia, South Africa, Nigeria... 
+              Welcome to Earning Money, we are launching in Bengaluru, Karnataka, Hyderabad, Telangana, Chennai, Tamil Nadu, Kerala (state), Mumbai, Maharashtra, Delhi, Uttar Pradesh, Dehradun, Uttarakhand... 
             </p>
           </div>
         </div>
-        <select className='h-[37px] mt-[12px] text-black' value={currencyAuth} onChange={handleCurrency}>
+        {/* <select className='h-[37px] mt-[12px] text-black' value={currencyAuth} onChange={handleCurrency}>
           <option value="INR">INR</option>
           <option value="USD">USD</option>
-        </select>
+        </select> */}
       </div>
       <div className='grid grid-cols-4'>
         {data.map((item, idx) => (
           <div 
             key={idx} 
             onClick={() => navigate(item.link)} 
-            className="flex cursor-pointer  flex-col m-1 mt-6  items-center"
+            className="flex cursor-pointer flex-col m-1 mt-6  items-center"
           >
             <img data-aos="fade-up-right"
-              className="rounded-full border-2  h-16" 
+              className="rounded-full bg-green-200 border-2  h-16" 
               src={item.img} 
               style={{ boxShadow: "0px 0px 3px 3px rgb(237, 234, 234)" }}
             />

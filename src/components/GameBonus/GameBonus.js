@@ -35,9 +35,9 @@ const GameBonus = () => {
   }, []);
 
   return (
-    <Layout title={"Game Bonus - Hype Drinks"}>
+    <Layout title={"Game Bonus - Earning Money"}>
       <div className="game-container">
-        <div className="flex justify-between p-5  bg-gradient-to-b from-green-400 to-blue-500 text-white">
+        <div className="flex justify-between p-5  bg-gradient-to-b from-purple-400 to-blue-500 text-white">
           <div
             className="cursor-pointer text-xl"
             onClick={() => {
@@ -53,7 +53,7 @@ const GameBonus = () => {
           <div className="text-xl">Games Income</div>
           <div className="font-bold w-9"></div>
         </div>
-        <img className="game-image" src="/images/spin.gif" />
+        <img className="game-image" src={require("./spin-removebg-preview.png")} />
         <div className="table-list">
           <table className="package-table">
             <thead>

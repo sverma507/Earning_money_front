@@ -38,9 +38,9 @@ const DailyIncome = () => {
         getDailyIncomeList();
     },[])
   return (
-    <Layout title={'Daily Income - Hype Drinks'}>
+    <Layout title={'Daily Income - Earning Money'}>
     <div className='daily-container'>
-    <div className="flex justify-between p-5  bg-gradient-to-b from-green-400 to-blue-500 text-white">
+    <div className="flex justify-between p-5  bg-gradient-to-b from-purple-400 to-blue-500 text-white">
           <div
             className="cursor-pointer text-xl"
             onClick={() => {
@@ -53,7 +53,7 @@ const DailyIncome = () => {
                   className="w-10 h-10"
                 />
           </div>
-          <div className="text-xl">Revenue Bonus</div>
+          <div className="text-xl">Product Profit</div>
           <div className="font-bold w-9"></div>
         </div>
         <img className="daily-image" src="/images/daily_income.png"/>

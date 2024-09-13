@@ -48,7 +48,7 @@ const Transaction = () => {
     }, [transactionType]);
 
     return (
-        <Layout title={'Transactions - Hype Drinks'}>
+        <Layout title={'Transactions - Earning Money'}>
             <div className="sm:w-2/5 mx-auto text-white min-h-screen bg-gradient-to-b from-green-400 to-blue-400 p-6 rounded-md shadow-md">
                 <header className="flex justify-between items-center p-4 rounded-t-lg">
                     <div className="cursor-pointer font-bold text-lg text-white" onClick={() => navigate(-1)}>

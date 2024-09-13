@@ -13,7 +13,7 @@ const Deposite = () => {
   const navigate = useNavigate();
 
   return (
-    <Layout title={"Recharge - Hype Drinks"}>
+    <Layout title={"Recharge - Earning Money"}>
       <div className="bg-gradient-to-b from-green-400 to-blue-500 pb-20 min-h-screen sm:w-2/5 mx-auto shadow-xl p-6">
         <header className="flex justify-between items-center p-4 shadow-lg rounded-t-lg bg-white">
           <div

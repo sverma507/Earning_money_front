@@ -57,10 +57,10 @@ function Invitation() {
   }, []);
 
   return (
-    <Layout title={'Invite - Hype Drinks'}>
+    <Layout title={'Invite - Earning Money'}>
       <ToastContainer />
-      <div className="sm:w-2/5 mx-auto p-4 h-[745px] bg-gradient-to-b from-green-400 to-blue-400 text-white">
-        <div className="flex justify-between">
+      <div className="sm:w-2/5 mx-auto p-4 h-[745px] bg-gradient-to-b from-purple-400 to-blue-400 text-white">
+        <div className="flex justify-between ">
           <div className="cursor-pointer" onClick={() => navigate(-1)}>
             <img src={"/images/back.png"} alt="back arrow" className="w-10 h-10" />
           </div>
@@ -79,7 +79,7 @@ function Invitation() {
             </div>
             <div className="w-4/5">
               <button
-                className={`rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-3 w-full mt-4 ${isLinkCopied ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`rounded-full border-2 border-white bg-gradient-to-r from-purple-400 to-purple-600 text-white p-3 w-full mt-4 ${isLinkCopied ? 'opacity-50 cursor-not-allowed' : ''}`}
                 onClick={copyToClipboard}
                 disabled={isLinkCopied}
               >
@@ -101,9 +101,8 @@ function Invitation() {
         <div className="mt-4 flex gap-6">
           <p>B = 10%</p>
           <p>C = 5%</p>
-          <p>D = 2%</p>
-          <p>E = 1%</p>
-          <p>F = 1%</p>
+          <p>D = 3%</p>
+         
         </div>
       </div>
     </Layout>

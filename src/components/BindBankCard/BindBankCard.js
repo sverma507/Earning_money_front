@@ -48,7 +48,7 @@ function BindBankCard() {
   };
 
   return (
-    <Layout title="Bank Details - Hype Drinks">
+    <Layout title="Bank Details - Earning Money">
       <div className="sm:w-2/5 h-screen mx-auto p-4 pb-16 bg-orange-300 text-white">
         <div className="flex justify-between">
           <div className="cursor-pointer"><img

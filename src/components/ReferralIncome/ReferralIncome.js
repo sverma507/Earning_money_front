@@ -36,9 +36,9 @@ const ReferralIncome = () => {
         getReferralIncomeList();
       },[])
   return (
-    <Layout title={'Rferral Income - Hype Drinks'}>
+    <Layout title={'Rferral Income - Earning Money'}>
     <div className='referral-container'>
-    <div className="flex justify-between p-5  bg-gradient-to-b from-green-400 to-blue-500 text-white">
+    <div className="flex justify-between p-5  bg-gradient-to-b from-purple-400 to-blue-500 text-white">
           <div
             className="cursor-pointer text-xl"
             onClick={() => {

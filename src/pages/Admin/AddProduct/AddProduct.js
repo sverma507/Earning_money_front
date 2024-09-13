@@ -110,7 +110,7 @@ const AddProduct = () => {
               name="img2"
               onChange={handleChange}
               accept="image/*"
-              required
+              
               className="mt-1 block bg-white w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
             {formData.img2 && <img src={URL.createObjectURL(formData.img2)} alt="Preview" className="mt-2 w-32 h-32 object-cover" />}

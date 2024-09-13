@@ -97,8 +97,8 @@ function MyProfile() {
   }, []);
 
   return (
-    <Layout title={"My Profile - Hype Drinks"}>
-      <div className=" text-white sm:w-2/5 mx-auto min-h-screen pb-24 bg-gradient-to-b from-green-400 to-blue-500 ">
+    <Layout title={"My Profile - Earning Money"}>
+      <div className=" text-white sm:w-2/5 mx-auto min-h-screen pb-24 bg-gradient-to-b from-purple-400 to-blue-500 ">
         {/* <div className="flex justify-between items-center px-4 py-2"> */}
         <div className="registerHeader p-4 px-6 text-white shadow-lg shadow-blue-400">
           <button onClick={() => navigate(-1)}>
@@ -182,7 +182,7 @@ function MyProfile() {
           </div>
         </div>
         <div
-          className="border-2  border-white grid-cols-2 md:grid-cols-3 bg-gradient-to-tr from-green-400 via-green-700 to-blue-500"
+          className="border-2  border-white grid-cols-2 md:grid-cols-3 bg-gradient-to-tr from-purple-400  to-blue-500"
           style={{
             display: "grid",
             // gridTemplateColumns: "repeat(3, 1fr)",
@@ -196,15 +196,15 @@ function MyProfile() {
           {/* Card 1 */}
           <div
             data-aos="fade-up-right"
-            className="bg-gradient-to-r from-green-300 to-green-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className="bg-gradient-to-r from-purple-300 to-purple-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-gray-800 text-sm font-bold">
+            <p className="text-white text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${Math.floor(user?.wallet)}`
                 : `$ ${(user?.wallet / 90).toFixed(2)}`}
             </p>
-            <p className="text-gray-800 font-semibold text-xs mb-2">
+            <p className="text-white font-semibold text-xs mb-2">
               Balance Wallet
             </p>
           </div>
@@ -220,21 +220,21 @@ function MyProfile() {
             ) : (
               <p className="text-red-500 text-sm font-bold">Unrecharged</p>
             )}
-            <p className="text-gray-800 font-semibold text-xs mb-2">Package</p>
+            <p className="text-white font-semibold text-xs mb-2">Package</p>
           </div>
 
           {/* Card 3 */}
           <div
             data-aos="fade-up-left"
-            className="bg-gradient-to-r from-green-300 to-green-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className="bg-gradient-to-r from-purple-300 to-purple-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-gray-800 text-sm font-bold">
+            <p className="text-white text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${(user?.todayEarning)}`
                 : `$ ${((user?.todayEarning)/90).toFixed(2)||0}`}
             </p>
-            <p className="text-gray-800 font-semibold text-xs mb-2">
+            <p className="text-white font-semibold text-xs mb-2">
               Earnings Today
             </p>
           </div>
@@ -245,12 +245,12 @@ function MyProfile() {
             className="bg-gradient-to-r from-blue-300 to-blue-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-gray-800 text-sm font-bold">
+            <p className="text-white text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${Math.floor(user?.rechargeWallet)}`
                 : `$ ${(user?.rechargeWallet / 90).toFixed(2)}`}
             </p>
-            <p className="text-gray-800 font-semibold text-xs mb-2">
+            <p className="text-white font-semibold text-xs mb-2">
               Recharge Wallet
             </p>
           </div>
@@ -258,15 +258,15 @@ function MyProfile() {
           {/* Card 5 */}
           <div
             data-aos="flip-down"
-            className="bg-gradient-to-r from-green-300 to-green-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className="bg-gradient-to-r from-purple-300 to-purple-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-gray-800 text-sm font-bold">
+            <p className="text-white text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${Math.floor(user?.totalEarning)}`
                 : `$ ${(user?.totalEarning / 90).toFixed(2)}`}
             </p>
-            <p className="text-gray-800 font-semibold text-xs mb-2">
+            <p className="text-white font-semibold text-xs mb-2">
               Total Earning
             </p>
           </div>
@@ -277,10 +277,10 @@ function MyProfile() {
             className="bg-gradient-to-r from-blue-300 to-blue-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-gray-800 text-sm font-bold">
+            <p className="text-white text-sm font-bold">
               {Math.floor(user?.packages.length)}
             </p>
-            <p className="text-gray-800 font-semibold text-xs mb-2">Product</p>
+            <p className="text-white font-semibold text-xs mb-2">Product</p>
           </div>
         </div>
 

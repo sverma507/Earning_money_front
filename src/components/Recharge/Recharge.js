@@ -23,7 +23,7 @@ const Recharge = () => {
   const [loading, setLoading] = useState(false);
   const [transactions, setTransactions] = useState([]); // To store transaction history
 
-  const UPI_ID = 'Q013079831@ybl'; // Replace with actual UPI ID
+  const UPI_ID = '9084407032@ptaxis'; // Replace with actual UPI ID
 
   // Function to fetch user transaction history
   const getQrTransactions = async () => {
@@ -141,9 +141,9 @@ const Recharge = () => {
   };
 
   return (
-    <Layout title={'Recharge - Hype Drinks'}>
+    <Layout title={'Recharge - Earning Money'}>
       <ToastContainer />
-      <div className="bg-gradient-to-b from-green-400 to-blue-500 pb-20 min-h-screen sm:w-2/5 mx-auto shadow-xl p-6">
+      <div className="bg-gradient-to-b from-purple-400 to-blue-500 pb-20 min-h-screen sm:w-2/5 mx-auto shadow-xl p-6">
         <header className="flex justify-between items-center p-4 shadow-lg rounded-t-lg bg-white">
           <div
             className="cursor-pointer font-bold text-lg text-blue-700"
@@ -162,7 +162,7 @@ const Recharge = () => {
               <button
                 key={amount}
                 onClick={() => handleAmountClick(amount)}
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold py-2 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform"
+                className="bg-gradient-to-r from-purple-400 to-purple-500 text-white font-bold py-2 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform"
               >
                 {currencyAuth === 'INR' ? amount : `$${(amount / 90).toFixed(2)}`}
               </button>

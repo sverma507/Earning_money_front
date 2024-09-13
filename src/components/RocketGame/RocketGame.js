@@ -62,7 +62,7 @@ const RocketGame = () => {
   };
 
   return (
-    <Layout title={'Rocket Game - Hype Drinks'}>
+    <Layout title={'Rocket Game - Earning Money'}>
       <div className="rocket-game">
         <h1 className='text-4xl text-white mb-10 font-sarif'>Launch the Rocket!</h1>
         {showRocket && (

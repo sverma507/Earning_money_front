@@ -50,7 +50,7 @@ import {
           <ModalContent
           className="modal-content"
           >
-            <ModalHeader style={{textAlign:"center",fontSize:"30px",color:"white",fontWeight:"600",padding:"10px"}}>Hype Drinks
+            <ModalHeader style={{textAlign:"center",fontSize:"30px",color:"white",fontWeight:"600",padding:"10px"}}>Earning Money
             <ModalCloseButton style={{width:"20px",fontSize:"20px",marginLeft:"90%",cursor:"pointer",padding:"10px",borderRadius:"5px",border:'transparent',marginTop:"-39px"}}/>
             </ModalHeader>
             <ModalBody

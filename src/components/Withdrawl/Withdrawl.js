@@ -172,11 +172,11 @@ const WithdrawalForm = () => {
   };
 
   return (
-    <Layout title={'Withdrawl - Hype Drinks'}>
+    <Layout title={'Withdrawl - Earning Money'}>
       <ToastContainer/>
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm p-4">
-          <div className="bg-sky-600 bg-opacity-50 backdrop-blur-2xl text-white rounded-lg shadow-lg w-full sm:w-2/6">
+          <div className="bg-yellow-300 bg-opacity-50 backdrop-blur-2xl text-white rounded-lg shadow-lg w-full sm:w-2/6">
             <form onSubmit={handleBankDetailsSubmit}>
               <div className="border-b border-gray-700 p-4 text-lg font-semibold">
                 Bank Account Details
@@ -252,7 +252,7 @@ const WithdrawalForm = () => {
       )}
 
 
-      <div className="sm:w-2/5 mx-auto text-white min-h-screen pb-16 bg-gradient-to-b from-blue-500 to-green-400 p-6 rounded-md shadow-md">
+      <div className="sm:w-2/5 mx-auto text-white min-h-screen pb-16 bg-gradient-to-b from-purple-500 to-blue-400 p-6 rounded-md shadow-md">
         <header className="flex justify-between items-center p-2 rounded-t-lg">
           <div className="cursor-pointer font-bold text-lg" onClick={() => navigate(-1)}><img
                   src={"/images/back.png"}

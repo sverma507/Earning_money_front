@@ -109,10 +109,10 @@ function MyProjects() {
   }, []);
 
   return (
-    <Layout title={"My Packages - Hype Drinks"}>
+    <Layout title={"My Packages - Earning Money"}>
       <ToastContainer />
       <div className="container sm:w-[40%] m-auto">
-        <div className="flex justify-between p-5 bg-gradient-to-b from-green-400 to-blue-500 text-white">
+        <div className="flex justify-between p-5 bg-gradient-to-b from-purple-400 to-blue-500 text-white">
           <div
             className="cursor-pointer text-xl"
             onClick={() => {
@@ -129,7 +129,7 @@ function MyProjects() {
           <div className="font-bold w-9"></div>
         </div>
 
-        <div className="grid grid-cols-1 mx-auto sm:w-2/9 pb-[200px] p-6 bg-gradient-to-b from-green-300 to-blue-300">
+        <div className="grid grid-cols-1 mx-auto sm:w-2/9 pb-[200px] p-6 bg-gradient-to-b from-purple-300 to-blue-300">
           <div className="text-center">
             Total Summary:{"  "}
             {currencyAuth === "INR"
@@ -140,7 +140,7 @@ function MyProjects() {
             products.map((item, index) => (
               <div
                 key={item._id}
-                className="bg-white bg-gradient-to-t m-4 border-2 border-white hover:bg-gradient-to-br from-green-300 to-blue-500 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="bg-white bg-gradient-to-t m-4 border-2 border-white hover:bg-gradient-to-br from-purple-300 to-blue-500 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <img
                   className="h-48 w-full object-contain"

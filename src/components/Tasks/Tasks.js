@@ -38,7 +38,7 @@ function Tasks() {
           <div
             key={item._id}
             data-aos="fade-up-right"
-            className=" hover:border-black cursor-pointer hover:shadow-2xl bg-gradient-to-tr hover:bg-gradient-to-b from-blue-400 to-green-400 rounded-lg duration-500 hover:text-blue-700 shadow-red-000 flex flex-col justify-center items-center border"
+            className=" hover:border-black cursor-pointer hover:shadow-2xl bg-gradient-to-tr hover:bg-gradient-to-b from-purple-400 to-blue-400 rounded-lg duration-500 hover:text-blue-700 shadow-red-000 flex flex-col justify-center items-center border"
           >
             <img
               className='h-[100px] w-[40%] rounded-lg sm:w-[50%] mt-4 sm:h-[150px]'
@@ -56,7 +56,7 @@ function Tasks() {
               }
               
             </div>
-            <div className="bg-green-500 text-white p-1 w-[60%] m-auto mt-4 mb-5 cursor-pointer rounded-lg shadow-md flex flex-col text-center" onClick={() => navigate('/users/user/single-product', { state: item })}>
+            <div className="bg-yellow-500 text-white p-1 w-[60%] m-auto mt-4 mb-5 cursor-pointer rounded-lg shadow-md flex flex-col text-center" onClick={() => navigate('/users/user/single-product', { state: item })}>
                 <div className='font-bold text-xl hover:shadow-lg'>Buy now</div>
             </div>
             <></>
@@ -68,7 +68,7 @@ function Tasks() {
       <div className="text-center mt-4">
         <button
           onClick={() => navigate('/users/user/all-products')}
-          className="hover:bg-gradient-to-b duration-200 bg-gradient-to-r from-yellow-400 to-orange-500 text-white py-2 px-4 rounded-full "
+          className="hover:bg-gradient-to-b duration-200 bg-gradient-to-r from-blue-400 to-purple-500 border-2 border-white text-white py-2 px-4 rounded-full "
         >
           View More
         </button>

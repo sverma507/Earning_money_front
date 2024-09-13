@@ -99,7 +99,7 @@ const DepositForm = () => {
     };
 
     return (
-      <Layout title={'Crypto Payment - Hype Drinks'}>
+      <Layout title={'Crypto Payment - Earning Money'}>
       <div className="relative min-h-screen sm:w-2/5 mx-auto bg-gradient-to-b from-green-400 to-blue-500">
         <header className="flex justify-between items-center p-4 shadow-lg bg-gradient-to-b from-green-400 to-blue-500">
           <div className="cursor-pointer font-bold text-lg text-blue-700" onClick={() => navigate(-1)}>

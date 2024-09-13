@@ -7,7 +7,7 @@ import Layout from '../Layout'
 function Bonus() {
     const navigate=useNavigate()
     return (
-        <Layout title={'Bonus - Hype Drinks'}>
+        <Layout title={'Bonus - Earning Money'}>
         <div className="sm:w-2/5 mx-auto p-4 h-full  bg-gradient-to-b from-green-400 to-blue-400">
             <div className="flex justify-between ">
             <div className="cursor-pointer" onClick={() => {navigate(-1)}}><img

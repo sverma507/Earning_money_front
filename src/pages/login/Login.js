@@ -82,8 +82,8 @@ const Login = () => {
   };
 
   return (
-    <Layout title={"Login - Hype Drinks"}>
-      <div className="sm:w-2/5 mx-auto bg-gradient-to-b from-green-400 to-blue-500 pb-16">
+    <Layout title={"Login - Earning Money"}>
+      <div className="sm:w-2/5 mx-auto bg-gradient-to-b from-purple-400 to-blue-500 pb-16">
         <div className="registerHeader p-4 px-6 text-white shadow-lg shadow-blue-400">
           <button onClick={() => navigate(-1)}><img
                   src={"/images/back.png"}

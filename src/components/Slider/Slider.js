@@ -27,19 +27,19 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="/images/abc1.png" />
+          <img src={require("./solar all products.png")} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/abc2.png" />
+          <img src={require("./ev-charger-2.jpg")} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/abc3.png" />
+          <img src={require("./ev-charger.png")} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/abc4.png" />
+          <img src={require("./solar-controllers.webp")} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="/images/abc5.png" />
+          <img src={require("./solar-tuvel.webp")} />
         </SwiperSlide>
       </Swiper>
     );
