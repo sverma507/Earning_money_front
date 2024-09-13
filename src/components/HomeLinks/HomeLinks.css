@@ -1,0 +1,21 @@
+.homelinkbg {
+    position: relative;
+    background-image: url('./earning_banner2.png');
+    background-size: contain;
+}
+
+.homelinkbg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+.homelinkbg > * {
+    position: relative;
+    z-index: 0;
+}

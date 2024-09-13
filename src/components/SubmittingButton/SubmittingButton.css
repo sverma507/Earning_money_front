@@ -1,0 +1,86 @@
+/* SubmittingButton.css */
+
+* {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .submitting-button-container {
+    width: 130px;
+    height: 40px;
+    text-align: center;
+  }
+  
+  .submitting-button {
+    outline: none;
+    height: 40px;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #1ECD97; 
+    color: #1ECD97; 
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .submitting-button:hover {
+    color: white;
+    background: #1ECD97;
+  }
+  
+  .submitting-button:active {
+    letter-spacing: 2px;
+  }
+  
+  .submitting-button:after {
+    content: "SUBMIT";
+  }
+  
+  .submitting-button.loading {
+    border-color: rgb(0, 238, 255);
+    border-width: 3px;
+    /* border-left-color: #1ECD97; */
+    font-size: 12px;
+  }
+  
+  .submitting-button.loading:after {
+    content: "Loading..";
+    display: inline-block;
+    margin-left: 8px;
+  }
+  
+  .submitting-button.validate {
+    font-size: 13px;
+    color: white;
+    background: #1ECD97; 
+  }
+  
+  .submitting-button.validate:after {
+    font-family: 'FontAwesome';
+    content: ""; /* Checkmark icon */
+  }
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .submitting-button .fas.fa-spinner {
+    margin-right: 8px;
+  }
+  
+  .submitting-button .fas.fa-check {
+    margin-right: 8px;
+  }
+  

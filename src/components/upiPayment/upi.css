@@ -1,0 +1,157 @@
+.upi-container{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    background: linear-gradient(to bottom, #68D391, #3182CE);
+    /* padding: 40px 10px; */
+    padding-bottom: 100p;
+    /* border: 1px solid red; */
+}
+
+.upi-form-deposite{
+    width: 60%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.upi-form-deposite > form{
+    text-align: center;
+}
+
+.upi-form-deposite > form > h4{
+    margin-top: 20px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.method-link{
+    /* border: 1px solid red; */
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30% ;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.method-link > a{
+    color: white;
+}
+
+.method-link > a > img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.method-link2{
+    margin-top: 50px;
+    /* border: 1px solid red; */
+    width: 40%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 40% 40%  ;
+    gap: 10px;
+    justify-content: space-between;
+    padding-bottom: 100p;
+
+    /* margin-bottom: 40px; */
+}
+
+.method-link2 > a > img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+
+}
+
+.method-link2 > a > p{
+    margin-left: -25px;
+    margin-top: 10px;
+
+}
+
+.method-link > a > p{
+    margin-left: -50px;
+    margin-top: 10px;
+ 
+ }
+
+.method-link2 > a{
+    color: white;
+}
+
+.method-link > a > img{
+
+}
+
+.method{
+    margin-top: 30px;
+    color:white;
+}
+
+.deposite-btn{
+    margin-top: 20px;
+    color: white;
+    width: 150px;
+    background: linear-gradient(to right, #f6e05e, #f56565);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .upi-container{
+        width: 100%;
+        margin: auto;
+        /* text-align: center; */
+        /* border: 1px solid red; */
+    }
+
+    .method-link{
+        /* border: 1px solid red; */
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 30% 30% 30% ;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+
+  
+
+    .method-link2{
+        margin-top: 50px;
+        /* border: 1px solid red; */
+        width: 60%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 40% 40%  ;
+        gap: 10px;
+        justify-content: center;
+        padding-bottom: 100p;
+        margin-top: 30px;
+        /* margin-bottom: 40px; */
+    }
+
+    .method-link2 > a > p{
+        margin-left: -15px;
+        margin-top: 10px;
+    
+    }
+    
+    .method-link > a > p{
+        margin-left: -15px;
+        margin-top: 10px;
+     
+     }
+
+    .upi-form-deposite{
+        width: 80%;
+        margin: auto;
+        margin-top: 40px;
+    }
+  }
