@@ -1,1 +1,1 @@
-# Earning_money_front
+# rita_frontend

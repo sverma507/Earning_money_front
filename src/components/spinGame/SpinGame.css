@@ -1,0 +1,193 @@
+.spin-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    font-family: 'Roboto', sans-serif;
+    width: 40%;
+
+    margin: auto;
+    /* margin-top: 50px; */
+    /* border: 1px solid red; */
+    background: linear-gradient(to bottom, #22c55e, #3b82f6);
+    height: 745px;
+    padding-top: 100px;
+  }
+  
+  .wheel {
+    width: 250px;
+    height: 250px;
+    border: 10px solid #333;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 3s ease-out;
+    background: conic-gradient(
+      #ff6347 0% 20%,
+      #ffa500 20% 40%,
+      #ffff00 40% 60%,
+      #32cd32 60% 80%,
+      #1e90ff 80% 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .wheel-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .wheel-segment {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    transform-origin: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  .wheel-segment:nth-child(1) { transform: rotate(-10deg) translate(120%) rotate(-64deg); }
+  .wheel-segment:nth-child(2) { transform: rotate(70deg) translate(120%) rotate(-60deg); }
+  .wheel-segment:nth-child(3) { transform: rotate(138deg) translate(120%) rotate(-68deg); }
+  .wheel-segment:nth-child(4) { transform: rotate(212deg) translate(120%) rotate(-64deg); }
+  .wheel-segment:nth-child(5) { transform: rotate(280deg) translate(120%) rotate(-67deg); }
+  
+  .spinning {
+    transform: rotate(1440deg); /* 4 full rotations */
+  }
+  
+  .spin-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .spin-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .spin-button:hover:not(:disabled) {
+    background-color: #e5533d;
+    transform: scale(1.05);
+  }
+  
+  .prize {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+
+  /* Confetti styles */
+#confetti {
+    position: fixed;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    margin: auto;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+  }
+  
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    opacity: 0.7;
+    border-radius: 50%;
+    animation: fall 2s infinite;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  #congrats-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 37%;
+    z-index: 1001;
+    display: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .spin-game {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      width: 99%;
+      margin: auto;
+      background: linear-gradient(to bottom, #22c55e, #3b82f6);
+      height: 745px;
+      padding-top: 100px;
+    }
+
+    #confetti {
+      position: fixed;
+      top: 0;
+      /* left: 50%; */
+      width: 90%;
+      height: 100%;
+      /* border: 1px solid red; */
+      margin: auto;
+      pointer-events: none;
+      z-index: 1000;
+      overflow: hidden;
+      display: none;
+    }
+
+    #congrats-message {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 87%;
+      z-index: 1001;
+      display: none;
+    }
+}

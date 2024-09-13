@@ -1,0 +1,50 @@
+.bot-image-icon {
+    cursor: pointer; /* Equivalent to _hover={{ cursor: "pointer" }} */
+    position: fixed;
+    bottom: 95px;
+    right: 400px;
+    background: linear-gradient(135deg, #cdead8 0%, #e87339 100%);
+    width: 60px;
+    height: 60px;
+    z-index: 2;
+    border-radius: 50%;
+  }
+  
+  .bot-image-icon {
+    cursor: pointer; /* Ensures the cursor changes to pointer on hover */
+  }
+  
+
+  .modal-content {
+    height: 440px;
+    width: 25% !important;
+    border-radius: 20px;
+    position: absolute;
+    right: 30px;
+    margin: auto;
+    top: -20px;
+    transform: translate(-50%, -50%);
+    z-index: 4  ;
+    background: linear-gradient(to bottom, #2563eb, #f5ece6);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .bot-image-icon {
+        cursor: pointer; /* Equivalent to _hover={{ cursor: "pointer" }} */
+        position: fixed;
+        bottom: 95px;
+        right: 30px;
+        background: linear-gradient(135deg, #cdead8 0%, #e87339 100%);
+        width: 60px;
+        height: 60px;
+        z-index: 2;
+        border-radius: 50%;
+      }
+
+      .modal-content {
+        height: 460px;
+        width: 85% !important;
+        right: 10px;
+        top: -50px;
+      }
+  }

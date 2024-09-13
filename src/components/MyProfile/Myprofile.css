@@ -1,0 +1,20 @@
+.water-drop {
+    width: 100px; /* Adjust the size */
+    height: 100px;
+    background-color: #00f; /* Blue color */
+    position: relative;
+    border-radius: 50% 50% 50% 50%/60% 60% 40% 40%; /* Creates the drop shape */
+    transform: rotate(45deg); /* Rotate to make it look like a drop */
+  }
+  
+  .water-drop:before {
+    content: '';
+    width: 100px; /* Adjust the size to match the parent */
+    height: 100px;
+    background-color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    transform: rotate(-45deg) translateY(-50%);
+  }

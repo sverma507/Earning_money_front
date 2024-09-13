@@ -1,0 +1,42 @@
+.term-container{
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    background: linear-gradient(to bottom, #68D391, #4299E1);
+    padding-top: 30px;
+}
+
+.term-container > h1{
+    /* margin-top: 30px; */
+    color: rgb(58, 43, 193);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.term-container > div{
+    text-align: left;
+    padding: 20px 30px;
+}
+
+
+.term-container > div > h2{
+    color: white;
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+.term-container > div > p{
+    color: rgb(71, 67, 67);
+    font-size: 15px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .term-container{
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        background: linear-gradient(to bottom, #68D391, #4299E1);
+        padding-top: 30px;
+    }
+  }

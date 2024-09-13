@@ -1,0 +1,62 @@
+.daily-container{
+    width: 40%;
+    margin: auto;
+    background: linear-gradient(to bottom, #68D391, #4299E1);
+    padding-bottom: 200px;
+}
+
+.daily-image{
+    margin: auto;
+    width: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.package-table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.package-table th, .package-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.package-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.package-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.package-table tr:hover {
+    background-color: #ddd;
+}
+
+.package-table caption {
+    caption-side: top;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .daily-container{
+        width: 100%;
+        margin: auto;
+        background: linear-gradient(to bottom, #68D391, #4299E1);
+    }
+
+    .package-table {
+        width: 97%;
+        margin: auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+}
