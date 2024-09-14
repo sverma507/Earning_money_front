@@ -58,12 +58,12 @@ function Home() {
       <div className="sm:w-2/5 mx-auto bg-gradient-to-b from-purple-300 to-indigo-400  text-white pb-16">
       <div className='h-16 w-16  fixed z-50  top-28'>
         <div>
-      <a href='https://t.me/hypedrinkoffical' target='_blank'>
+      <a href='#' target='_blank'>
         <img src='/images/tele.png' />
         </a>
         </div>
         <div>
-        <a href='https://wa.me/447402850739' target='_blank'>
+        <a href='#' target='_blank'>
         <img className='mt-2' src='/images/whatsaap.png'/>
         </a> 
         </div>

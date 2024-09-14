@@ -38,7 +38,7 @@ function ProductPage() {
 
   return (
     <Layout title={"Packages - Earning Money"}>
-      <div className="sm:w-2/5 mx-auto p-4 pb-16 min-h-screen bg-gradient-to-b from-purple-400 to-blue-500 text-white">
+      <div className="sm:w-2/5 mx-auto p-4 pb-16 min-h-screen bg-gradient-to-b from-blue-300 to-blue-600 text-white">
         <div className="flex justify-between">
           <div
             className="cursor-pointer"
