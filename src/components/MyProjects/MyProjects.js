@@ -163,7 +163,7 @@ function MyProjects() {
                       ? `Rs. ${item.price}`
                       : `$ ${(item.price / 90).toFixed(2)}`}
                   </p>
-                  <p className="text-gray-600">Cycle: 100 days</p>
+                  <p className="text-gray-600">Cycle: {item.cycle}</p>
                   <p className="text-gray-600">
                     Total revenue:{" "}
                     {currencyAuth === "INR"

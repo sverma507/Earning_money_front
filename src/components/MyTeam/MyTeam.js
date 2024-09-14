@@ -117,32 +117,32 @@ const MyTeam = () => {
             onClick={() => setCurrentLevel(1)}
             className={currentLevel === 1 ? "activeButton" : ""}
           >
-            B 10% (Level B)
+            A 10% (Level A)
           </button>
           <button
             onClick={() => setCurrentLevel(2)}
             className={currentLevel === 2 ? "activeButton" : ""}
           >
-            C 5% (Level C)
+            B 5% (Level B)
           </button>
           <button
             onClick={() => setCurrentLevel(3)}
             className={currentLevel === 3 ? "activeButton" : ""}
           >
-            D 2% (Level D)
+            C 2% (Level C)
           </button>
-          <button
+          {/* <button
             onClick={() => setCurrentLevel(4)}
             className={currentLevel === 4 ? "activeButton" : ""}
           >
             E 1% (Level E)
-          </button>
-          <button
+          </button> */}
+          {/* <button
             onClick={() => setCurrentLevel(5)}
             className={currentLevel === 5 ? "activeButton" : ""}
           >
             F 1% (Level F)
-          </button>
+          </button> */}
         </div>
         <div className="teamTable">
           <table>
