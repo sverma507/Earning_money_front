@@ -38,7 +38,7 @@ function ProductPage() {
 
   return (
     <Layout title={"Packages - Earning Money"}>
-      <div className="sm:w-2/5 mx-auto p-4 pb-16 min-h-screen bg-gradient-to-b from-purple-400 to-blue-500 text-white">
+      <div className="sm:w-2/5 mx-auto p-4 pb-16 min-h-screen bg-gradient-to-b from-blue-300 to-blue-600 text-black">
         <div className="flex justify-between">
           <div
             className="cursor-pointer"
@@ -104,7 +104,7 @@ function ProductPage() {
               </div>
             </div>
             <button
-                className="mt-4 w-full  border-2 border-white bg-gradient-to-r from-green-400 to-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform"
+                className="mt-4 w-full  border-2 border-white bg-gradient-to-r from-blue-400 to-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform"
                 onClick={() =>navigate("/users/user/single-product", { state: item })}
               >
                 Buy Now

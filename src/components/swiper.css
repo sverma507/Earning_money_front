@@ -7,6 +7,7 @@
     margin: auto;
     position: relative;
     overflow: hidden;
+    background-color: rgb(167, 192, 192);
   }
 
   .slider-wrapper {
@@ -27,9 +28,9 @@
   }
 
   .slide img {
-    width: 100%; /* Ensure the image fits within the container */
+    width: 70%; /* Ensure the image fits within the container */
     height: 100%;
-    object-fit: contain; /* Ensure that the entire image is visible without cropping */
+    object-fit:contain; /* Ensure that the entire image is visible without cropping */
     backface-visibility: hidden;
     border-radius: 10px; /* Optional: Add a small border radius */
   }

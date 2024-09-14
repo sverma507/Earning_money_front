@@ -196,15 +196,15 @@ function MyProfile() {
           {/* Card 1 */}
           <div
             data-aos="fade-up-right"
-            className="bg-gradient-to-r from-purple-300 to-purple-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className=" rounded-md p-4 border-2 bg-sky-300 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-white text-sm font-bold">
+            <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${Math.floor(user?.wallet)}`
                 : `$ ${(user?.wallet / 90).toFixed(2)}`}
             </p>
-            <p className="text-white font-semibold text-xs mb-2">
+            <p className="text-black font-semibold text-xs mb-2">
               Balance Wallet
             </p>
           </div>
@@ -212,7 +212,7 @@ function MyProfile() {
           {/* Card 2 */}
           <div
             data-aos="flip-up"
-            className="bg-gradient-to-r from-blue-300 to-blue-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className=" rounded-md p-4 border-2 bg-sky-300 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
             {user?.packages.length > 0 ? (
@@ -220,21 +220,21 @@ function MyProfile() {
             ) : (
               <p className="text-red-500 text-sm font-bold">Unrecharged</p>
             )}
-            <p className="text-white font-semibold text-xs mb-2">Package</p>
+            <p className="text-black font-semibold text-xs mb-2">Package</p>
           </div>
 
           {/* Card 3 */}
           <div
             data-aos="fade-up-left"
-            className="bg-gradient-to-r from-purple-300 to-purple-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className=" rounded-md p-4 border-2 bg-sky-300 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-white text-sm font-bold">
+            <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${(user?.todayEarning)}`
                 : `$ ${((user?.todayEarning)/90).toFixed(2)||0}`}
             </p>
-            <p className="text-white font-semibold text-xs mb-2">
+            <p className="text-black font-semibold text-xs mb-2">
               Earnings Today
             </p>
           </div>
@@ -242,15 +242,15 @@ function MyProfile() {
           {/* Card 4 */}
           <div
             data-aos="fade-down-left"
-            className="bg-gradient-to-r from-blue-300 to-blue-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className=" rounded-md p-4 border-2 bg-sky-300 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-white text-sm font-bold">
+            <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${Math.floor(user?.rechargeWallet)}`
                 : `$ ${(user?.rechargeWallet / 90).toFixed(2)}`}
             </p>
-            <p className="text-white font-semibold text-xs mb-2">
+            <p className="text-black font-semibold text-xs mb-2">
               Recharge Wallet
             </p>
           </div>
@@ -258,15 +258,15 @@ function MyProfile() {
           {/* Card 5 */}
           <div
             data-aos="flip-down"
-            className="bg-gradient-to-r from-purple-300 to-purple-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className=" rounded-md p-4 border-2 bg-sky-300 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-white text-sm font-bold">
+            <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
                 ? `Rs. ${Math.floor(user?.totalEarning)}`
                 : `$ ${(user?.totalEarning / 90).toFixed(2)}`}
             </p>
-            <p className="text-white font-semibold text-xs mb-2">
+            <p className="text-black font-semibold text-xs mb-2">
               Total Earning
             </p>
           </div>
@@ -274,13 +274,13 @@ function MyProfile() {
           {/* Card 6 */}
           <div
             data-aos="fade-down-right"
-            className="bg-gradient-to-r from-blue-300 to-blue-500 rounded-md p-4 border-2 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
+            className=" rounded-md p-4 border-2 bg-sky-300 border-white text-center shadow-xl transform hover:scale-105 transition-transform duration-300"
             style={{ height: "100px" }}
           >
-            <p className="text-white text-sm font-bold">
+            <p className="text-black text-sm font-bold">
               {Math.floor(user?.packages.length)}
             </p>
-            <p className="text-white font-semibold text-xs mb-2">Product</p>
+            <p className="text-black font-semibold text-xs mb-2">Product</p>
           </div>
         </div>
 
@@ -288,7 +288,7 @@ function MyProfile() {
           <div className="grid grid-cols-1 gap-4">
             <div
               data-aos="fade-up-right"
-              className="bg-white  cursor-pointer  hover:bg-green-300 rounded-md p-3 shadow-md flex items-center"
+              className="bg-white  cursor-pointer  hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center"
               onClick={() => {
                 navigate("/users/user/contact-manager");
               }}
@@ -311,7 +311,7 @@ function MyProfile() {
             </div>
             <div
               data-aos="fade-up-left"
-              className="bg-white  hover:bg-green-300 rounded-md p-3 shadow-md flex items-center cursor-pointer  duration-200"
+              className="bg-white  hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center cursor-pointer  duration-200"
               onClick={() => {
                 navigate("/users/user/invitation");
               }}
@@ -334,7 +334,7 @@ function MyProfile() {
             </div>
             {/* <div
                 data-aos="fade-down-left"
-                className="bg-white  cursor-pointer hover:bg-green-300 rounded-md p-3 shadow-md flex items-center"
+                className="bg-white  cursor-pointer hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center"
               >
                 <div className="rounded-full bg-green-200  mr-4">
                   <img
@@ -357,7 +357,7 @@ function MyProfile() {
               onClick={() => {
                 navigate("/users/user/my-team");
               }}
-              className="bg-white cursor-pointer hover:bg-green-300 duration-200 rounded-md p-3 shadow-md flex items-center"
+              className="bg-white cursor-pointer hover:bg-sky-300  duration-200 rounded-md p-3 shadow-md flex items-center"
             >
               <div className="rounded-full   mr-4">
                 <img
@@ -366,7 +366,7 @@ function MyProfile() {
                   className="w-10 h-10"
                 />
               </div>
-              <p className="text-gray-700 font-bold text-lg">My Teams</p>
+              <p className="text-gray-700  font-bold text-lg">My Teams</p>
               <div className="ml-auto">
                 <img
                   src={"/images/viewmore.png"}
@@ -377,7 +377,7 @@ function MyProfile() {
             </div>
             {/* <div
               data-aos="flip-up"
-              className="bg-white  cursor-pointer hover:bg-green-300 rounded-md p-3 shadow-md flex items-center"
+              className="bg-white  cursor-pointer hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center"
             >
               <div className="rounded-full   mr-4">
                 <img
@@ -400,7 +400,7 @@ function MyProfile() {
                 navigate("/users/user/all-transaction-details");
               }}
               data-aos="flip-up"
-              className="bg-white  cursor-pointer hover:bg-green-300 rounded-md p-3 shadow-md flex items-center"
+              className="bg-white  cursor-pointer hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center"
             >
               <div className="rounded-full   mr-4">
                 <img
@@ -422,7 +422,7 @@ function MyProfile() {
             </div>
             {/* <div
               data-aos="fade-down-down"
-              className="bg-white  cursor-pointer hover:bg-green-300 rounded-md p-3 shadow-md flex items-center"
+              className="bg-white  cursor-pointer hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center"
             >
               <div className="rounded-full  mr-4">
                 <img
@@ -444,7 +444,7 @@ function MyProfile() {
             </div> */}
             <div
               data-aos="fade-up-right"
-              className="bg-white  cursor-pointer  hover:bg-green-300 rounded-md p-3 shadow-md flex items-center"
+              className="bg-white  cursor-pointer  hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center"
               onClick={() => {
                 navigate("/terms-conditions");
               }}
@@ -472,7 +472,7 @@ function MyProfile() {
               onClick={() => {
                 navigate("/users/user/modify-password");
               }}
-              className="bg-white  cursor-pointer hover:bg-green-300 rounded-md p-3 shadow-md flex items-center"
+              className="bg-white  cursor-pointer hover:bg-sky-300 rounded-md p-3 shadow-md flex items-center"
             >
               <div className="rounded-full  mr-4">
                 <img
@@ -494,7 +494,7 @@ function MyProfile() {
             </div>
             <div
               data-aos="flip-left"
-              className="bg-white  rounded-md p-3 shadow-md  flex items-center  cursor-pointer hover:bg-green-300 duration-200"
+              className="bg-white  rounded-md p-3 shadow-md  flex items-center  cursor-pointer hover:bg-sky-300 duration-200"
               onClick={handleLogout}
             >
               <div className="rounded-full  mr-4">
