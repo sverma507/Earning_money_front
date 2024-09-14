@@ -110,14 +110,14 @@ const Login = () => {
               className={`toggleButton text-white ${loginMethod === "phone" ? "active" : ""}`}
               onClick={() => setLoginMethod("phone")}
             >
-              <img src={require("./phone.png")} className="w-24" alt="Phone Icon" />
+              <img src={require("./phone_logo1.png")} className="w-24" alt="Phone Icon" />
               Phone number
             </div>
             <div
               className={`toggleButton text-white ${loginMethod === "email" ? "active" : ""}`}
               onClick={() => setLoginMethod("email")}
             >
-              <img src={require("./mailt.png")} className="w-24" alt="Email Icon" />
+              <img src={require("./email_logo1.png")} className="w-24" alt="Email Icon" />
               Email / Account
             </div>
           </div>

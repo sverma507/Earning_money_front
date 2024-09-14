@@ -92,8 +92,8 @@
 
   .signUp{
     width: 90%;
-    background: rgb(40, 53, 192);
-    background: radial-gradient(circle, rgb(40, 53, 192) 50%, rgba(251,247,247,1) 120%);
+    background: rgb(48, 190, 219); /* A green color */
+    background: radial-gradient(circle, rgb(48, 190, 219) 50%, rgba(255, 255, 255, 1) 120%);
     padding: 10px 20px;
     border-radius: 20px;
     margin-top: 30px;
@@ -136,12 +136,6 @@
       }
   }
   
-
-
-
-
-
-
 
   /* Register.css */
 .modalBackground {

@@ -24,9 +24,9 @@ const BottomNav = () => {
             <button
               onClick={() => navigate("/users/user/spin-game")}
               type="button"
-              className="inline-flex items-center justify-center w-16 h-16 font-medium group"
+              className="inline-flex items-center justify-center w-12 h-16 font-medium group"
             >
-              <img src={spin} alt="Games" />
+              <img src={spin} alt="Games" className={""} />
               <span className="sr-only">Games</span>
             </button>
           </div>
@@ -40,7 +40,7 @@ const BottomNav = () => {
             type="button"
             className="inline-flex flex-col items-center rounded-full justify-center px-5 group"
           >
-            <img src={allProducts} className="" />
+            <img src={allProducts} className="w-12" />
             <span className="sr-only">All Products</span>
           </button>
           <div
@@ -59,7 +59,7 @@ const BottomNav = () => {
             type="button"
             className="inline-flex  flex-col items-center justify-center px-5 rounded-full group"
           >
-            <img src={home} className="" />
+            <img src={home} className="w-12" />
             <span className="sr-only">Home</span>
           </button>
           <div
@@ -86,7 +86,7 @@ const BottomNav = () => {
             type="button"
             className="inline-flex flex-col items-center rounded-full justify-center px-5 group"
           >
-            <img src={myProducts} className="" />
+            <img src={myProducts} className="w-10" />
             <span className="sr-only">Plans</span>
           </button>
           <div
@@ -105,7 +105,7 @@ const BottomNav = () => {
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 rounded-full group"
           >
-            <img src={profile} className="" />
+            <img src={profile} className="w-12" />
             <span className="sr-only">Profile</span>
           </button>
           <div
