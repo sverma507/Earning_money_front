@@ -56,6 +56,7 @@ import PaymentForm from './components/upiPayment/upiPaymentRequest.js';
 import Payout from './components/payout/payout.js';
 import Deposite from './components/Recharge/deposite.js';
 import AllQrRequest from './pages/Admin/AllQrRequest/AllQrRequest.js';
+import Privacy_Policy from './components/Privacy_Policy/Privacy_Policy.js';
 function App() {
 
   return (
@@ -77,6 +78,7 @@ function App() {
           <Route path="user/contact-manager" element={<ContackManager />} />
           <Route path="user/all-products" element={<ProductPage />} />
           <Route path="user/weekly-salary-info" element={<WeeklySalaryPoster/>} />
+          <Route path="user/privacy-policy" element={<Privacy_Policy/>} />
           <Route path="user/single-product" element={<SingleProduct />} />
           <Route path="user/my-team" element={<MyTeam />} />
           <Route path="user/my-products" element={<MyProjects />} />
