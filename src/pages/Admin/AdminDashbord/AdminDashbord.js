@@ -11,18 +11,19 @@ const Dashboard = () => {
   const [paidUser, setPaidUser] = useState(0);
   const [unpaidUser, setUnpaidUser] = useState(0);
   const [paidUsersLastMonth, setPaidUsersLastMonth] = useState(0);
-  const [transactions, setTransactions] = useState([]);
   const [users, setUsers] = useState([]);
   const [rupeeTotal, setRupeeTotal] = useState();
-  const [TotalPaymentInINR, setTotalPaymentInINR] = useState("");
   const [lastWithDrawl, setLastWithdrawl] = useState([]);
+  const [totalWithdrawl, setTotalWithdrawl] = useState(0);
+  const [totalDeposite, setTotalDeposite] = useState(0);
+  const [todayDeposite, setTodayDeposite] = useState(0);
+  const [todayCollection, setTodayCollection] = useState(0);
   const [activeAdminTotal, setActiveAdminTotal] = useState(0);
   const [activeUserTotal, setActiveUserTotal] = useState(0);
   const [todayAdminActivateTotal, setTodayAdminActivateTotal] = useState(0);
   const [todayUserActivateTotal, setTodayUserActivateTotal] = useState(0);
   const [totalEarningWallet, setEarningWallet] = useState(0);
   const [totalRechargeWallet, setRechargeWallet] = useState(0);
-  const [totalDepositsToday, setTotalDepositsToday] = useState(0);
 
   const getData = async () => {
     let pd = [];
@@ -56,10 +57,52 @@ const Dashboard = () => {
   };
 
 
+
+  const getQRPaymentRequests = async () => {
+    try {
+      const result = await axios.get(
+        `${process.env.REACT_APP_API_URL}/admin/qr-payment-requests`
+      );
+      console.log(result.data.data);
+
+      let resArray = [];
+      let dep = 0;
+      let todayDep = 0;
+
+      for(let i=0;i<result.data.data.length;i++){
+        if(result.data.data[i].paymentStatus == "Approved"){
+           resArray.push(result.data.data[i]);
+        }
+      }
+      
+      const today = new Date().toISOString().slice(0, 10);
+      
+      for(let i=0;i<resArray.length;i++){
+        console.log(resArray[i]);
+        
+        const activationDate = new Date(resArray[i].createdAt)
+          .toISOString()
+          .slice(0, 10);
+          dep += resArray[i].amount;
+          if(activationDate === today){
+             todayDep += resArray[i].amount
+          }
+      }
+      console.log(dep, todayDep);
+      
+      setTotalDeposite(dep);
+      setTodayDeposite(todayDep);
+      
+    } catch (err) {
+      console.log("Error while getting QR payment requests", err);
+    }
+  };
+
+
   const getAllRequests = async () => {
     try {
       const result = await axios.get(
-        `${process.env.REACT_APP_API_URL}/upi-payment/all-transactions`
+        `${process.env.REACT_APP_API_URL}/admin/activation-list`
       );
 
       const today = new Date().toLocaleDateString();
@@ -71,9 +114,7 @@ const Dashboard = () => {
         )
         .reduce((total, txn) => total + txn.txnAmount, 0);
 
-        setTotalDepositsToday(totalDeposits);
       console.log("transactions=>", result.data);
-      setTransactions(result.data);
       getINRamount(result.data);
     } catch (err) {
       console.log("Error while getting the transactions", err);
@@ -86,10 +127,8 @@ const Dashboard = () => {
 
     let val = 0;
     for (let i = 0; i < trans.length; i++) {
-      console.log("trnas ==>", trans[i]);
-      if (trans[i].status == "success") {
-        val += trans[i].txnAmount;
-      }
+      val += trans[i].packagePrice;
+     
     }
     setRupeeTotal(val);
     console.log(val);
@@ -100,7 +139,27 @@ const Dashboard = () => {
       const result = await axios.get(
         `${process.env.REACT_APP_API_URL}/admin/withdrawal-requests`
       );
-      setLastWithdrawl(result.data || []); // Ensure data is an array
+      console.log(result.data);
+      let totalWith = 0;
+      let todayWith = 0;
+      const today = new Date().toISOString().slice(0, 10);
+
+      for(let i=0;i<result.data.length;i++){
+        
+        if(result.data.paymentStatus == "Completed" ){
+          const activationDate = new Date(result.data[i].createdAt)
+        .toISOString()
+        .slice(0, 10);
+            totalWith += result.data.amount;
+            if(activationDate === today){
+                todayWith += result.data.amount
+            }
+        }
+      }
+
+      setTotalWithdrawl(totalWith);
+      setLastWithdrawl(todayWith);
+      
     } catch (err) {
       console.log("Error while getting the withdrawal requests", err);
     }
@@ -116,6 +175,7 @@ const Dashboard = () => {
       let count2 = 0;
       let todayCount1 = 0;
       let todayCount2 = 0;
+      let todayCol = 0;
 
       const today = new Date().toISOString().slice(0, 10);
 
@@ -124,23 +184,32 @@ const Dashboard = () => {
         const activationDate = new Date(result.data[i].createdAt)
           .toISOString()
           .slice(0, 10);
+          // console.log(result.data[i]);
+          
 
         if (result.data[i].activateBy == "admin") {
-          count1 += Number(result.data[i].package.substring(4));
+          count1 += result.data[i].packagePrice;
+          
           if (activationDate === today) {
-            todayCount1 += Number(result.data[i].package.substring(4)); // Increment today's admin activation count
+            todayCount1 += result.data[i].packagePrice; // Increment today's admin activation count
+            todayCol += result.data[i].packagePrice
           }
+          
         } else {
-          count2 += Number(result.data[i].package.substring(4));
+          count2 += result.data[i].packagePrice;
           if (activationDate === today) {
-            todayCount2 += Number(result.data[i].package.substring(4)); // Increment today's user activation count
+            todayCount2 += result.data[i].packagePrice; // Increment today's user activation count
+            todayCol += result.data[i].packagePrice;
           }
         }
       }
+      console.log(count1,count2);
+      
       setActiveAdminTotal(count1);
       setActiveUserTotal(count2);
       setTodayAdminActivateTotal(todayCount1);
       setTodayUserActivateTotal(todayCount2);
+      setTodayCollection(todayCol);
     } catch (error) {
       console.log(error);
     }
@@ -175,6 +244,7 @@ const Dashboard = () => {
     getAllRequests();
     getWithdrawalRequests();
     getActivationList();
+    getQRPaymentRequests();
     // getTotalINRCollection();
     // getTotalUSDCollection();
   }, []);
@@ -190,37 +260,52 @@ const Dashboard = () => {
           {/* Revenue Chart Section */}
           <div className="bg-slate-300 w-[60%] text-white p-8 rounded-lg">
             <h2 className="text-xl font-bold mb-4">Revenue Chart</h2>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-8 mt-10">
               {/* Revenue Stats */}
-              <div className="bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400  p-4 rounded-lg shadow-xl">
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-teal-400  p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
                 <h3 className="text-lg font-semibold">Total Collection</h3>
                 <p className="text-sm">
                   Rs.{" "}
                   {(rupeeTotal || 0).toLocaleString("en-IN")}
                 </p>
               </div>
-              <div className="bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 p-4 rounded-lg shadow-xl">
-                <h3 className="text-lg font-semibold">Total INR Collection</h3>
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-teal-400 p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+                <h3 className="text-lg font-semibold">Today Collection</h3>
                 <p className="text-sm">
-                  Rs. {(rupeeTotal || 0).toLocaleString("en-IN")}
+                  Rs. {(todayCollection || 0).toLocaleString("en-IN")}
                 </p>
               </div>
-              <div className="bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 p-4 rounded-lg shadow-xl">
-                <h3 className="text-lg font-semibold">Last Payout</h3>
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-teal-400 p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+                <h3 className="text-lg font-semibold">Total Deposite</h3>
                 <p className="text-sm">
                   Rs.{" "}
-                  {(
-                    lastWithDrawl[lastWithDrawl.length - 1]?.amount || 0
-                  ).toLocaleString("en-IN")}{" "}
-                  {lastWithDrawl[lastWithDrawl.length - 1]?.userName}
+                  {(totalDeposite || 0).toLocaleString("en-IN")}
                 </p>
               </div>
-              <div className="bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 p-4 rounded-lg shadow-xl">
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-teal-400 p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
                 <h3 className="text-lg font-semibold">Today Deposite</h3>
                 <p className="text-sm">
                   Rs.{" "}
                   {(
-                    totalDepositsToday || 0
+                    todayDeposite || 0
+                  ).toLocaleString("en-IN")}
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-teal-400 p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+                <h3 className="text-lg font-semibold">Total Withdrawl</h3>
+                <p className="text-sm">
+                  Rs.{" "}
+                  {(
+                    totalWithdrawl || 0
+                  ).toLocaleString("en-IN")}
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-green-600 via-green-500 to-teal-400 p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+                <h3 className="text-lg font-semibold">Today Withdrawl</h3>
+                <p className="text-sm">
+                  Rs.{" "}
+                  {(
+                    lastWithDrawl || 0
                   ).toLocaleString("en-IN")}
                 </p>
               </div>
@@ -287,13 +372,13 @@ const Dashboard = () => {
         <div className="mt-10 p-6 border  rounded-xl bg-white">
           <h2 className="text-xl font-bold mb-8">Available Wallet</h2>
           <div className="grid grid-cols-4 gap-4">
-            <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+            <div className="bg-gradient-to-r from-purple-500 via-purple-400 to-purple-200 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
               <h3 className="text-lg font-semibold">E-wallet</h3>
               <p className="text-lg">
                 Rs. {(totalEarningWallet || 0).toLocaleString("en-IN")}
               </p>
             </div>
-            <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+            <div className="bg-gradient-to-r from-purple-500 via-purple-400 to-purple-200 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
               <h3 className="text-lg font-semibold">R-wallet</h3>
               <p className="text-lg">
                 Rs. {(totalRechargeWallet || 0).toLocaleString("en-IN")}
@@ -304,25 +389,25 @@ const Dashboard = () => {
         <div className="mt-10 p-6 border  rounded-xl bg-white">
           <h2 className="text-xl font-bold mb-8">Activation Details</h2>
           <div className="grid grid-cols-4 gap-4">
-            <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+            <div className="bg-gradient-to-r from-purple-500 via-purple-400 to-purple-200 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
               <h3 className="text-lg font-semibold">Today Active By User</h3>
               <p className="text-lg">
                 Rs. {(todayUserActivateTotal || 0).toLocaleString("en-IN")}
               </p>
             </div>
-            <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+            <div className="bg-gradient-to-r from-purple-500 via-purple-400 to-purple-200 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
               <h3 className="text-lg font-semibold">Today Active By Admin</h3>
               <p className="text-lg">
                 Rs. {(todayAdminActivateTotal || 0).toLocaleString("en-IN")}
               </p>
             </div>
-            <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+            <div className="bg-gradient-to-r from-purple-500 via-purple-400 to-purple-200 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
               <h3 className="text-lg font-semibold">Total Active By User</h3>
               <p className="text-lg">
                 Rs. {(activeUserTotal || 0).toLocaleString("en-IN")}
               </p>
             </div>
-            <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-yellow-400 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
+            <div className="bg-gradient-to-r from-purple-500 via-purple-400 to-purple-200 text-white p-4 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.5)] transform translate-y-[-10px] transition-all duration-300 hover:translate-y-[-20px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.7)] hover:scale-105">
               <h3 className="text-lg font-semibold">Total Active By Admin</h3>
               <p className="text-lg">
                 Rs. {(activeAdminTotal || 0).toLocaleString("en-IN")}
