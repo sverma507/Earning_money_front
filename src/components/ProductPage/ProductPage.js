@@ -88,7 +88,7 @@ function ProductPage() {
                 </p>
                 <p className="mt-1 font-bold">
                   Cycle:{" "}
-                  <span className="mt-1 font-normal">{item.cycle}</span>
+                  <span className="mt-1 font-normal">{item.cycle} days</span>
                 </p>
               </div>
               <p className="mt-1 text-sm font-bold">
