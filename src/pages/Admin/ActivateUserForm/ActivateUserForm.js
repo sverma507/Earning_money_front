@@ -148,23 +148,25 @@ function ActivateUserForm() {
           <table className="min-w-full bg-white border rounded-lg">
             <thead className="bg-gray-200">
               <tr>
-                <th className="py-2 px-4 border-b text-left">#</th>
-                <th className="py-2 px-4 border-b text-left">User Id</th>
-                <th className="py-2 px-4 border-b text-left">Mobile Number</th>
-                <th className="py-2 px-4 border-b text-left">Activated By</th>
-                <th className="py-2 px-4 border-b text-left">Package</th>
-                <th className="py-2 px-4 border-b text-left">Date & Time</th>
+                <th className="py-2 px-4 border-b text-center">#</th>
+                <th className="py-2 px-4 border-b text-center">User Id</th>
+                <th className="py-2 px-4 border-b text-center">Mobile Number</th>
+                <th className="py-2 px-4 border-b text-center">Activated By</th>
+                <th className="py-2 px-4 border-b text-center">Package</th>
+                <th className="py-2 px-4 border-b text-center">Package Price</th>
+                <th className="py-2 px-4 border-b text-center">Date & Time</th>
               </tr>
             </thead>
             <tbody>
               {activationList.map((activation, index) => (
                 <tr key={activation.id}>
-                  <td className="py-2 px-4 border-b">{index + 1}</td>
-                  <td className="py-2 px-4 border-b">{activation.user}</td>
-                  <td className="py-2 px-4 border-b">{activation.mobileNumber}</td>
-                  <td className="py-2 px-4 border-b">{activation.activateBy}</td>
-                  <td className="py-2 px-4 border-b">{activation.package}</td>
-                  <td className="py-2 px-4 border-b"> 
+                  <td className="py-2 px-4 border-b text-center">{index + 1}</td>
+                  <td className="py-2 px-4 border-b text-center">{activation.user}</td>
+                  <td className="py-2 px-4 border-b text-center">{activation.mobileNumber}</td>
+                  <td className="py-2 px-4 border-b text-center">{activation.activateBy}</td>
+                  <td className="py-2 px-4 border-b text-center">{activation.package}</td>
+                  <td className="py-2 px-4 border-b text-center">Rs. {(activation.packagePrice || 0).toLocaleString("en-IN")}</td>
+                  <td className="py-2 px-4 border-b text-center"> 
                     {new Date(activation.createdAt).toLocaleString()}
                   </td>
                 </tr>
