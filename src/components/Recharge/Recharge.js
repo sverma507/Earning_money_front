@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Recharge = () => {
-  const amounts = [540, 1350, 3150, 6750, 11250, 29250];
+  const amounts = [500,2500,5000,7500,10000,25000,50000,100000,500000,1000000,2500000,5000000];
   const [formData, setFormData] = useState({
     userId: '',
     userCode: '',
@@ -162,7 +162,7 @@ const Recharge = () => {
               <button
                 key={amount}
                 onClick={() => handleAmountClick(amount)}
-                className="bg-gradient-to-r from-purple-400 to-purple-500 text-white font-bold py-2 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform"
+                className="bg-gradient-to-r w-32 from-purple-400 to-purple-500 text-white font-bold py-2 px-6 rounded-lg shadow-md transform hover:scale-105 transition-transform"
               >
                 {currencyAuth === 'INR' ? amount : `$${(amount / 90).toFixed(2)}`}
               </button>

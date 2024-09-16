@@ -340,6 +340,7 @@ const WithdrawalForm = () => {
                                 <th className="py-2">Sr#</th>
                                 <th className="py-2">Date</th>
                                 <th className="py-2">Amount</th>
+                                <th className="py-2">Withdrawl Charge</th>
                                 <th className="py-2">Status</th>
                             </tr>
                         </thead>
@@ -350,6 +351,7 @@ const WithdrawalForm = () => {
                                         <td className="py-2 text-center">{index + 1}</td>
                                         <td className="py-2 text-center">{new Date(transaction.createdAt).toLocaleDateString()}</td>
                                         <td className="py-2 text-center">{transaction.amount}</td>
+                                        <td className="py-2 text-center">5%</td>
                                         <td className="py-2 text-center">{transaction.paymentStatus}</td>
                                     </tr>
                                 ))

@@ -83,6 +83,7 @@ const Transaction = () => {
                                 <th className="py-2">Sr#</th>
                                 <th className="py-2">Date</th>
                                 <th className="py-2">Amount</th>
+                                <th className="py-2">withdrawl Charge</th>
                                 <th className="py-2">Status</th>
                             </tr>
                         </thead>
@@ -95,6 +96,10 @@ const Transaction = () => {
                                         <td className="py-2 text-center">
                                             {transactionType === 'add-fund' ? `Rs. ${transaction.txnAmount}` : transaction.amount}
                                         </td>
+                                        <td className="py-2 text-center">
+                                            5%
+                                        </td>
+
                                         <td className="py-2 text-center">
                                             {transactionType === 'add-fund' ? 
                                                 (transaction.status === 'created' ? 'Processing' : transaction.status) : 
