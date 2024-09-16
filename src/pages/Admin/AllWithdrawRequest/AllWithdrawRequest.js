@@ -188,13 +188,13 @@ const AllWithdrawRequest = () => {
 
 console.log("hello=>",selectedTransactions);
   return (
-    <div className="flex min-h-screen gap-2 bg-gradient-to-b from-green-400 to-blue-500">
+    <div className="flex w-fit  min-h-screen gap-2 bg-gradient-to-b from-green-400 to-blue-500">
         {/* Sidebar */}
         <Sidebar className="fixed w-60 h-full" />
       
         {/* Main content */}
         <ToastContainer/>
-        <div className="ml-60 p-4 flex-1">
+        <div className="ml-60  p-4 flex-1">
         <h2 className="text-2xl font-bold mb-6 text-center text-white">
           Withdrawal Requests
         </h2>
@@ -253,6 +253,12 @@ console.log("hello=>",selectedTransactions);
                 </th>
                 <th className="py-3 px-4 border-b text-center text-gray-600">
                   Amount
+                </th>
+                <th className="py-3 px-4 border-b text-center text-gray-600">
+                  Withdrawl Charge
+                </th>
+                <th className="py-3 px-4 border-b text-center text-gray-600">
+                  Withdraw Amount
                 </th>
                 <th className="py-3 px-4 border-b text-center text-gray-600">
                   Account Number
@@ -314,6 +320,12 @@ console.log("hello=>",selectedTransactions);
                 </td>
                       <td className="py-2 px-4 border-b text-center">
                         ₹{transaction.amount}
+                      </td>
+                      <td className="py-2 px-4 border-b text-center">
+                       5%
+                      </td>
+                      <td className="py-2 px-4 border-b text-center">
+                        ₹{transaction.amount-(transaction.amount*5)/100}
                       </td>
                       <td className="py-2 px-4 border-b text-center">
                         {transaction.accountNumber}

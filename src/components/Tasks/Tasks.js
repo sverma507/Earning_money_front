@@ -73,6 +73,10 @@ function Tasks() {
           View More
         </button>
       </div>
+      <div  className='mt-4 p-4' >
+        <div className='font-bold text-black'>NEWS Section:</div>
+        <img src={require('./news.jpg')}/>
+      </div>
     </div>
   );
 }
