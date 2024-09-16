@@ -73,9 +73,21 @@ function Tasks() {
           View More
         </button>
       </div>
+
+      <div className=' font-bold md:text-2xl flex m-4 border-2 border-white'>
+        <img className='w-24 md:w-[40%] ' src={require('./specialOffer.jpeg')}/>
+        GET A CHANCE TO WIN FREE CASH PRIZE SPIN ON EVERY NEW DIRECT REGISTRAION
+      </div>  
+
       <div  className='mt-4 p-4' >
-        <div className='font-bold text-black'>NEWS Section:</div>
-        <img src={require('./news.jpg')}/>
+        <div className='font-bold text-black text-center text-2xl'>NEWS Section:</div>
+        <div className='grid md:grid-cols-2 gap-4'>
+          <div><img src={require('./news1.jpg')}/> </div>
+          <div><img src={require('./news2.jpg')}/> </div>
+          <div><img src={require('./news3.jpeg')}/> </div>
+          <div><img src={require('./news4.jpg')}/> </div>
+        </div>
+        
       </div>
     </div>
   );
