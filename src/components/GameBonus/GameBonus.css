@@ -13,14 +13,15 @@
 }
 
 .package-table {
-    width: 80%;
+    width: 85%;
     margin: auto;
+    
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 .package-table th, .package-table td {
-    border: 1px solid #ddd;
+    border: 1px solid black;
     padding: 8px;
     text-align: center;
 }

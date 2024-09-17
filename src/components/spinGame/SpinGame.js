@@ -191,7 +191,23 @@ const SpinGame = () => {
   return (
     <Layout title={"Hype - Spin Profit"}>
       <div className="spin-game">
-        <div className="text-center">
+      <div className="flex justify-between w-[100%] p-5 bg-gradient-to-b from-purple-400 to-blue-500 text-white">
+          <div
+            className="cursor-pointer text-xl"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <img
+              src={"/images/back.png"}
+              alt="right arrow"
+              className="w-10 h-10"
+            />
+          </div>
+          <div className="text-xl">Business</div>
+          <div className="font-bold w-9"></div>
+        </div>
+        <div className="text-center mt-10">
           <h1 className="text-4xl text-white text-center mb-10 font-serif">
             {spin > 0
               ? `You have ${spin} spins!`

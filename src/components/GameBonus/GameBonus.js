@@ -9,10 +9,10 @@ import { toast } from "react-toastify";
 const GameBonus = () => {
   const [auth] = useAuth();
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);  // Updated state to hold user data
-  const [activation, setActivation] = useState([]);  // State for activation array
-  const [powerLeg, setPowerLeg] = useState([]);  // State for power leg array
-  const [otherLeg, setOtherLeg] = useState([]);  // State for other leg array
+  const [user, setUser] = useState(null); // Updated state to hold user data
+  const [activation, setActivation] = useState([]); // State for activation array
+  const [powerLeg, setPowerLeg] = useState([]); // State for power leg array
+  const [otherLeg, setOtherLeg] = useState([]); // State for other leg array
 
   const getUser = async () => {
     const { id } = auth.user;
@@ -29,7 +29,7 @@ const GameBonus = () => {
       );
       const userData = res.data;
 
-      setUser(userData);  // Update the user data
+      setUser(userData); // Update the user data
 
       // Populate the activation, powerLeg, and otherLeg arrays
       setActivation(userData.weeklySalaryActivation || []);
@@ -64,40 +64,46 @@ const GameBonus = () => {
                 className="w-10 h-10"
               />
             </div>
-            <div className="text-xl">Games Income</div>
+            <div className="text-xl">Salary</div>
             <div className="font-bold w-9"></div>
           </div>
           <img
             className="game-image"
-            src={require("./spin-removebg-preview.png")}
+            src={require("./salary_icon.png")}
             alt="Game Bonus"
           />
-          <table className="w-[90%] m-auto bg-gradient-to-b from-green-400 to-blue-400">
-            <thead>
-              <tr>
-                <th className="py-2">Sr#</th>
-                <th className="py-2">Salary</th>
-                <th className="py-2">Power Leg</th>
-                <th className="py-2">Other Leg</th>
-                <th className="py-2">Pending Amount</th>
-                <th className="py-2">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {user?.salary?.map((salary, index) => (
-                <tr key={index}>
-                  <th className="py-2">{index + 1}</th>
-                  <th className="py-2">{(salary || 0).toLocaleString("en-IN")}</th>
-                  <th className="py-2">{powerLeg[index] || 0}</th>
-                  <th className="py-2">{otherLeg[index] || 0}</th>
-                  <th className="py-2">0</th>
-                  <th className="py-2">
-                    {activation[index] ? "Success" : "Pending"}
-                  </th>
+          <div className="package-table">
+            <table className="m-auto text-sm bg-gradient-to-b from-green-400 to-blue-400">
+              <thead>
+                <tr>
+                  <th className="py-2">Level</th>
+                  <th className="py-2">Salary</th>
+                  <th className="py-2">Power Leg</th>
+                  <th className="py-2">Other Leg</th>
+                  <th className="py-2">Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {user?.salary?.map((salary, index) => (
+                  <tr key={index}>
+                    <th className="py-2">{index + 1}</th>
+                    <th className="py-2">
+                      {(salary || 0).toLocaleString("en-IN")}
+                    </th>
+                    <th className="py-2">{(powerLeg[index] || 0).toLocaleString("en-IN")}</th>
+                    <th className="py-2">{(otherLeg[index] || 0).toLocaleString("en-IN")}</th>
+                    <th
+                      className={`py-2 ${
+                        activation[index] ? "text-green-500" : "text-yellow-500"
+                      }`}
+                    >
+                      {activation[index] ? "Success" : "Pending"}
+                    </th>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </Layout>

@@ -58,7 +58,7 @@ const TeamIncome = () => {
         </div>
         <img className="team-image" src="/images/team_income.png"/>
         <div className='table-list overflow-x-auto'>
-        <table className="package-table table-auto ">
+        <table className="level-table table-auto text-sm">
       <thead>
         <tr className='tr-head'>
           <th >Date</th>
@@ -79,7 +79,7 @@ const TeamIncome = () => {
 
                 return (
                   <tr key={index}>
-                    <td className='w-[400px]'>{formattedDate}</td>
+                    <td className=''>{`${new Date(item.createdAt).toLocaleDateString()}`}</td>
                     <td>{item.fromUser}</td>
                     <td>{item.level}</td>
                     <td>{item.package}</td>

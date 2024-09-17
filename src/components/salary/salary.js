@@ -46,7 +46,7 @@ const Salary = () => {
               className="w-10 h-10"
             />
           </div>
-          <div className="text-xl">Salary</div>
+          <div className="text-xl">Business</div>
           <div className="font-bold w-9"></div>
         </div>
         <img className="team-image" src="/images/team_income.png" />

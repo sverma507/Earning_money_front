@@ -37,7 +37,6 @@ const DepositForm = () => {
         fetchTransactions();
         const pollingInterval = setInterval(fetchTransactions, 1000);
 
-        // Clean up the interval on component unmount
         return () => clearInterval(pollingInterval);
     }, []);
 
