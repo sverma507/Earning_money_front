@@ -4,97 +4,98 @@ import { useAuth } from "../../context/auth";
 import { useNavigate } from "react-router-dom";
 import "./GameBonus.css";
 import axios from "axios";
-import { useCurrencyAuth } from "../../context/currency";
+import { toast } from "react-toastify";
 
 const GameBonus = () => {
-  const [auth, setAuth] = useAuth();
-  const [gameBonusList, setGameBonusList] = useState([]);
+  const [auth] = useAuth();
   const navigate = useNavigate();
-  const [currencyAuth, setCurrencyAuth] = useCurrencyAuth(); 
+  const [user, setUser] = useState(null);  // Updated state to hold user data
+  const [activation, setActivation] = useState([]);  // State for activation array
+  const [powerLeg, setPowerLeg] = useState([]);  // State for power leg array
+  const [otherLeg, setOtherLeg] = useState([]);  // State for other leg array
 
-  const getGameIncomeList = async () => {
+  const getUser = async () => {
+    const { id } = auth.user;
     const token = auth.token;
+
     try {
-      const result = await axios.get(
-        `${process.env.REACT_APP_API_URL}/user/game-income-list/${auth?.user.id}`,
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/profile/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      setGameBonusList(result.data);
-      console.log(result.data);
+      const userData = res.data;
+
+      setUser(userData);  // Update the user data
+
+      // Populate the activation, powerLeg, and otherLeg arrays
+      setActivation(userData.weeklySalaryActivation || []);
+      setPowerLeg(userData.powerLeg || []);
+      setOtherLeg(userData.otherLeg || []);
+
+      console.log("User Data:", userData);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching user data:", error);
+      toast.error("Something went wrong");
     }
   };
 
   useEffect(() => {
-    getGameIncomeList();
+    getUser();
   }, []);
 
   return (
     <Layout title={"Game Bonus - Earning Money"}>
       <div className="game-container">
-        <div className="flex justify-between p-5  bg-gradient-to-b from-purple-400 to-blue-500 text-white">
-          <div
-            className="cursor-pointer text-xl"
-            onClick={() => {
-              navigate(-1);
-            }}
-          >
-            <img
-                  src={"/images/back.png"}
-                  alt="right arrow"
-                  className="w-10 h-10"
-                />
+        <div>
+          <div className="flex justify-between p-5 bg-gradient-to-b from-purple-400 to-blue-500 text-white">
+            <div
+              className="cursor-pointer text-xl"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              <img
+                src={"/images/back.png"}
+                alt="right arrow"
+                className="w-10 h-10"
+              />
+            </div>
+            <div className="text-xl">Games Income</div>
+            <div className="font-bold w-9"></div>
           </div>
-          <div className="text-xl">Games Income</div>
-          <div className="font-bold w-9"></div>
-        </div>
-        <img className="game-image" src={require("./spin-removebg-preview.png")} />
-        <div className="table-list">
-          <table className="package-table">
+          <img
+            className="game-image"
+            src={require("./spin-removebg-preview.png")}
+            alt="Game Bonus"
+          />
+          <table className="w-[90%] m-auto bg-gradient-to-b from-green-400 to-blue-400">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Game</th>
-                <th>Prize</th>
+                <th className="py-2">Sr#</th>
+                <th className="py-2">Salary</th>
+                <th className="py-2">Power Leg</th>
+                <th className="py-2">Other Leg</th>
+                <th className="py-2">Pending Amount</th>
+                <th className="py-2">Status</th>
               </tr>
             </thead>
             <tbody>
-              {gameBonusList?.map((item, index) => {
-                // Convert `createdAt` to a Date object if it's not already
-                const createdAtDate = new Date(item.createdAt);
-                const formattedDate = !isNaN(createdAtDate.getTime())
-                  ? createdAtDate.toISOString().split("T")[0]
-                  : "Invalid Date"; // Fallback if the date is invalid
-
-                // Determine the sign and style based on item.type
-                const sign =
-                  item.type === "add" ? "+" : item.type === "deduct" ? "-" : "";
-                const signStyle = {
-                  color:
-                    item.type === "add"
-                      ? "green"
-                      : item.type === "deduct"
-                      ? "red"
-                      : "inherit",
-                };
-
-                return (
-                  <tr key={index}>
-                    <td>{formattedDate}</td>
-                    <td>{item.game}</td>
-                    <td>
-                      <span style={signStyle}>{sign}</span>
-                      {currencyAuth === "INR" ? ` ${item.prize}` : `$ ${(item.prize / 90).toFixed(2)}`}
-
-                    </td>
-                  </tr>
-                );
-              })}
+              {user?.salary?.map((salary, index) => (
+                <tr key={index}>
+                  <th className="py-2">{index + 1}</th>
+                  <th className="py-2">{(salary || 0).toLocaleString("en-IN")}</th>
+                  <th className="py-2">{powerLeg[index] || 0}</th>
+                  <th className="py-2">{otherLeg[index] || 0}</th>
+                  <th className="py-2">0</th>
+                  <th className="py-2">
+                    {activation[index] ? "Success" : "Pending"}
+                  </th>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

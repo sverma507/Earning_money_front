@@ -57,6 +57,7 @@ import Payout from './components/payout/payout.js';
 import Deposite from './components/Recharge/deposite.js';
 import AllQrRequest from './pages/Admin/AllQrRequest/AllQrRequest.js';
 import Privacy_Policy from './components/Privacy_Policy/Privacy_Policy.js';
+import Salary from './components/salary/salary.js';
 function App() {
 
   return (
@@ -90,7 +91,7 @@ function App() {
           <Route path='user/rocket-game' element={<RocketGame/>}/>
           <Route path='user/total-earnings' element={<TotalEarnings/>}/>
           <Route path='user/bonus-earnings' element={<BonusEarnings/>}/>
-          <Route path='user/referral-income' element={<ReferralIncome/>}/>
+          <Route path='user/salary' element={<Salary/>}/>
           <Route path='user/team-income' element={<TeamIncome/>}/>
           <Route path='user/game-bonus' element={<GameBonus/>}/>
           <Route path='user/daily-income' element={<DailyIncome/>}/>

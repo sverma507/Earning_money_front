@@ -39,10 +39,10 @@ const TotalEarnings = () => {
     <div
       className="earning-item"
       onClick={() => {
-        navigate("/users/user/referral-income");
+        navigate("/users/user/salary");
       }}
     >
-      Salary 
+      Business 
     </div>
     <div
       className="earning-item"
@@ -58,7 +58,7 @@ const TotalEarnings = () => {
         navigate("/users/user/game-bonus");
       }}
     >
-      Game Income
+      Salary
     </div>
   </div>
 </div>

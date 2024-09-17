@@ -10,7 +10,7 @@
     /* margin-top: 50px; */
     /* border: 1px solid red; */
     background: linear-gradient(to bottom, #cc61da, #3b82f6);
-    height: 745px;
+    /* height: 745px; */
     padding-top: 100px;
   }
   
@@ -96,6 +96,47 @@
     font-size: 18px;
     color: #333;
   }
+
+  .table-list{
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .package-table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+   
+}
+
+.package-table th, .package-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.package-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.package-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.package-table tr:hover {
+    background-color: #ddd;
+}
+
+.package-table caption {
+    caption-side: top;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
   
 
   /* Confetti styles */
@@ -157,7 +198,7 @@
       width: 99%;
       margin: auto;
       background: linear-gradient(to bottom, #22c55e, #3b82f6);
-      height: 745px;
+      /* height: 745px; */
       padding-top: 100px;
     }
 
