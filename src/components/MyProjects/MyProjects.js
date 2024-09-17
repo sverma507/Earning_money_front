@@ -167,8 +167,8 @@ function MyProjects() {
                   <p className="text-gray-600">
                     Total revenue:{" "}
                     {currencyAuth === "INR"
-                      ? `Rs. ${item.income * 100}`
-                      : `$ ${((item.income * 100) / 90).toFixed(2)}`}
+                      ? `Rs. ${item.income * item.cycle}`
+                      : `$ ${((item.income * item.cycle) / 90).toFixed(2)}`}
                   </p>
                   <button
                     className={`mt-4 w-full border-2 ${
