@@ -192,7 +192,7 @@ const Register = () => {
 
         <div className=" justify-center items-center m-auto text-center bg-gradient-to-bl from-green-400 to-blue-900 p-2 rounded-lg w-[50%] border border-gray-500">
         <h2 className="text-white text-center">Join Community</h2>
-        <a href="#" target="_blank">
+        <a href="https://t.me/earnmoney7989" target="_blank">
           <img className="h-20 cursor-pointer m-auto" src={tele} alt="Telegram" />
           </a>
         </div>
