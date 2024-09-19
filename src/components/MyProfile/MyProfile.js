@@ -201,7 +201,7 @@ function MyProfile() {
           >
             <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
-                ? `Rs. ${Math.floor(user?.wallet)}`
+                ? `Rs. ${Math.floor(user?.wallet).toLocaleString("en-IN")}`
                 : `$ ${(user?.wallet / 90).toFixed(2)}`}
             </p>
             <p className="text-black font-semibold text-xs mb-2">
@@ -231,7 +231,7 @@ function MyProfile() {
           >
             <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
-                ? `Rs. ${(user?.todayEarning)}`
+                ? `Rs. ${Math.floor(user?.todayEarning).toLocaleString("en-IN")}`
                 : `$ ${((user?.todayEarning)/90).toFixed(2)||0}`}
             </p>
             <p className="text-black font-semibold text-xs mb-2">
@@ -247,7 +247,7 @@ function MyProfile() {
           >
             <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
-                ? `Rs. ${Math.floor(user?.rechargeWallet)}`
+                ? `Rs. ${Math.floor(user?.rechargeWallet).toLocaleString("en-IN")}`
                 : `$ ${(user?.rechargeWallet / 90).toFixed(2)}`}
             </p>
             <p className="text-black font-semibold text-xs mb-2">
@@ -263,7 +263,7 @@ function MyProfile() {
           >
             <p className="text-black text-sm font-bold">
               {currencyAuth === "INR"
-                ? `Rs. ${Math.floor(user?.totalEarning)}`
+                ? `Rs. ${Math.floor(user?.totalEarning).toLocaleString("en-IN")}`
                 : `$ ${(user?.totalEarning / 90).toFixed(2)}`}
             </p>
             <p className="text-black font-semibold text-xs mb-2">
