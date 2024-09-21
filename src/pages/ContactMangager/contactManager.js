@@ -23,9 +23,9 @@ const ContackManager = () => {
     <h1 className="text-4xl text-white">
       For any support join our WhatsApp group:-{" "}
     </h1>
-    <a href="https://wa.me/447402850739" target="_blank">
+    <a href="https://wa.me/447861673621" target="_blank">
       <h3 className="text-3xl mt-7">
-        👉 <span className="hover:text-blue-900 hover:underline underline-offset-1">+447402850739</span>
+        👉 <span className="hover:text-blue-900 hover:underline underline-offset-1">+447861673621</span>
       </h3>
     </a>
   </div>
