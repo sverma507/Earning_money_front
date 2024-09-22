@@ -71,11 +71,11 @@ const SpinGame = () => {
 
   // Define prizes with different probabilities
   const prizes = [
-    { name: 100, weight: 5 },
-    { name: 200, weight: 2 }, // Smaller prize
-    { name: 15, weight: 60 }, // Smaller prize
-    { name: 25, weight: 20 }, // More common prize
-    { name: 50, weight: 13 }, // Larger prize
+    { name: 25, weight: 5 },
+    { name: 20, weight: 2 }, // Smaller prize
+    { name: 15, weight: 13 }, // Smaller prize
+    { name: 10, weight: 30 }, // More common prize
+    { name: 5, weight: 50 }, // Larger prize
   ];
 
   // Utility function to select a prize based on weights
