@@ -76,9 +76,10 @@ const AllUsers = () => {
             <thead>
               <tr className="bg-green-700 text-white">
                 <th className="py-3 px-4 border-b text-left">S.No</th>
-                <th className="py-3 px-4 border-b text-left">User Name</th>
+               
                 <th className="py-3 px-4 border-b text-left">Referral Code</th>
                 <th className="py-3 px-4 border-b text-left">Referred By</th>
+                <th className="py-3 px-4 border-b text-left">User Name</th>
                 <th className="py-3 px-4 border-b text-left">Mobile No</th>
                 <th className="py-3 px-4 border-b text-left">Password</th>
                 <th className="py-3 px-4 border-b text-left">Wallet</th>
@@ -91,7 +92,7 @@ const AllUsers = () => {
               {users.map((user, index) => (
                 <tr key={user._id} className="text-gray-700 hover:bg-gray-50">
                   <td className="py-2 px-4 border-b">{index + 1}</td>
-                  <td className="py-2 px-4 border-b">{user?.userName}</td>
+                 
                   <td
                     className="py-2 px-4 border-b cursor-pointer text-blue-600 hover:text-blue-800"
                     onClick={(e) => userAccess(e, user.mobileNumber, user.password)}
@@ -99,6 +100,7 @@ const AllUsers = () => {
                     {user.referralCode}
                   </td>
                   <td className="py-2 px-4 border-b">{user.referredBy || "No reference"}</td>
+                  <td className="py-2 px-4 border-b">{user?.userName}</td>
                   <td className="py-2 px-4 border-b">{user.mobileNumber}</td>
                   <td className="py-2 px-4 border-b truncate max-w-xs">{user.password}</td>
                   <td className="py-2 px-4 border-b">{Math.floor(user.wallet)}</td>
