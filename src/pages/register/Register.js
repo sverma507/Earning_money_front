@@ -13,6 +13,7 @@ import 'react-phone-input-2/lib/style.css';
 import phone from './phone.png';
 import mail from './mail.png';
 import verification from './verification.png';
+import named from "./name.png";
 import reffer from './referal.png';
 import pass from './password.png';
 import UserInfoModal from "../../components/UserInfoModal/UserInfoModal";
@@ -22,6 +23,7 @@ const Register = () => {
   const location = useLocation();
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [inputCaptcha, setInputCaptcha] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
@@ -69,6 +71,7 @@ const Register = () => {
       const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, {
         mobileNumber,
         email,
+        name,
         password,
         referredBy: referralCode,
       });
@@ -138,6 +141,15 @@ const Register = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+              />
+            </div>
+            <div className="loginInputWrapper">
+              <img src={named} alt="Code Icon" className="h-10" />
+              <input
+                type="text"
+                placeholder="Please Enter Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
 
