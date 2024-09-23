@@ -23,7 +23,8 @@ const Recharge = () => {
   const [loading, setLoading] = useState(false);
   const [transactions, setTransactions] = useState([]); // To store transaction history
 
-  const UPI_ID = '9084407032@ptaxis'; // Replace with actual UPI ID
+  // const UPI_ID = '9084407032@ptaxis'; // Replace with actual UPI ID
+  const UPI_ID = 'sagfjshjsbsvaj@axl'; // Replace with actual UPI ID
 
   // Function to fetch user transaction history
   const getQrTransactions = async () => {
