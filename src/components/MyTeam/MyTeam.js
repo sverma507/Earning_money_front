@@ -129,7 +129,7 @@ const MyTeam = () => {
             onClick={() => setCurrentLevel(3)}
             className={currentLevel === 3 ? "activeButton" : ""}
           >
-            C 2% (Level C)
+            C 3% (Level C)
           </button>
           {/* <button
             onClick={() => setCurrentLevel(4)}
