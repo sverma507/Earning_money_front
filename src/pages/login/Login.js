@@ -40,7 +40,7 @@ const Login = () => {
 
     if (inputCaptcha !== verificationCode.toString()) {
       toast.error("Invalid CAPTCHA code.");
-      setLoading(false); // Stop loading if CAPTCHA fails.
+      setLoading(false); // Stop loading if CA PTCHA fails.
       return;
     }
 

@@ -88,7 +88,7 @@ function MyProjects() {
 
       setUser((prevUser) => {
         const updatedUser = { ...prevUser };
-        updatedUser.claimBonus[index] = false; // Mark bonus as claimed
+        updatedUser.claimBonus[index] = true; // Mark bonus as claimed
         return updatedUser;
       });
 
@@ -172,7 +172,7 @@ function MyProjects() {
                   </p>
                   <button
                     className={`mt-4 w-full border-2 ${
-                      user?.claimBonus[index]
+                      !user?.claimBonus[index]
                         ? "bg-gradient-to-r from-yellow-400 to-orange-500"
                         : "bg-gray-400"
                     } text-white font-bold py-2 px-4 rounded-lg shadow-md transform hover:scale-105 transition-transform`}
@@ -180,12 +180,12 @@ function MyProjects() {
                       handleClaimBonus(item._id, index, item.price);
                     }}
                     disabled={
-                      !user?.claimBonus[index] || claimingIndex !== null
+                      user?.claimBonus[index] || claimingIndex !== null
                     } // Disable during claiming
                   >
                     {claimingIndex === index
                       ? "Claiming..."
-                      : user?.claimBonus[index]
+                      : !user?.claimBonus[index]
                       ? "Claim Your Bonus"
                       : "Recieved"}
                   </button>

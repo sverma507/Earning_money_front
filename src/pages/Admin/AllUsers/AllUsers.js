@@ -72,10 +72,10 @@ const AllUsers = () => {
       <div className="ml-64 w-full p-6  bg-gradient-to-b from-green-400 to-blue-500">
         <h2 className="text-3xl font-semibold text-gray-800 mb-6">All User List</h2>
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-md divide-y divide-gray-200">
+          <table className=" text-sm bg-white border border-gray-300 rounded-lg shadow-md divide-y divide-gray-200">
             <thead>
               <tr className="bg-green-700 text-white">
-                <th className="py-3 px-4 border-b text-left">S.No</th>
+                <th className="py-3 px-4 border-b text-left w-[100px]">S.No</th>
                
                 <th className="py-3 px-4 border-b text-left">Referral Code</th>
                 <th className="py-3 px-4 border-b text-left">Referred By</th>
