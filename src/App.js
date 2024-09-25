@@ -58,6 +58,7 @@ import Deposite from './components/Recharge/deposite.js';
 import AllQrRequest from './pages/Admin/AllQrRequest/AllQrRequest.js';
 import Privacy_Policy from './components/Privacy_Policy/Privacy_Policy.js';
 import Salary from './components/salary/salary.js';
+import ChangePassword from './pages/Admin/ChangePassword/ChangePassword.js';
 function App() {
 
   return (
@@ -103,6 +104,7 @@ function App() {
     <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<Dashboard />} />
           <Route path="admin/add-product" element={<AddProduct/>} />
+          <Route path="admin/change-password" element={<ChangePassword/>} />
           <Route path="admin/all-products" element={<AllProducts/>} />
           <Route path="admin/update-product/:id" element={<UpdateProduct/>} />
           <Route path="admin/all-users" element={<AllUsers />} />

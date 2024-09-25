@@ -44,7 +44,7 @@ const Sidebar = ({toggle}) => {
     <div className="flex flex-col">
       <ToastContainer/>
       {/* <HorizontalNavbar toggle={toggle}/> */}
-      <div className="flex flex-row flex-grow h-screen">
+      <div className="flex flex-row flex-grow h-screen text-sm">
         <div className={`flex flex-col ${isOpen ? 'w-64' : 'w-20'} bg-gray-800 text-white transition-width duration-300 fixed h-full`}>
           <button 
             onClick={toggleNavbar} 
@@ -57,13 +57,13 @@ const Sidebar = ({toggle}) => {
             
               <li className="group " onClick={()=>{navigate('/dashboard/admin')}}>
                 <div onClick={() => handleDropdownClick(0)} className="flex  items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <FaTachometerAlt className="mr-2 text-4xl" />
+                  <FaTachometerAlt className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Dashboard</span>}
                 </div>
               </li>
               <li className="group">
                 <div onClick={() => handleDropdownClick(1)} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <FaUser className="mr-2 text-4xl" />
+                  <FaUser className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow ">User Master</span>}
                   {isOpen && <FaAngleDown className={`ml-2 transition-transform duration-300 ${openDropdown === 1 ? 'rotate-180' : ''}`} />}
                 </div>
@@ -81,14 +81,14 @@ const Sidebar = ({toggle}) => {
               </li>
               <li className="group" onClick={()=>{navigate('/dashboard/admin/activate-user')}}>
                 <div onClick={() => handleDropdownClick(0)} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <FaTachometerAlt className="mr-2 text-4xl" />
+                  <FaTachometerAlt className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Activation</span>}
                 </div>
               </li>
              
               <li className="group">
                 <div onClick={() => handleDropdownClick(2)} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <FcStatistics className="mr-2 text-4xl" />
+                  <FcStatistics className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Commission Reports</span>}
                   {isOpen && <FaAngleDown className={`ml-2 transition-transform duration-300 ${openDropdown === 2 ? 'rotate-180' : ''}`} />}
                 </div>
@@ -105,7 +105,7 @@ const Sidebar = ({toggle}) => {
               
               <li className="group">
                 <div onClick={() => handleDropdownClick(3)} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <GiCash className="mr-2 text-4xl" />
+                  <GiCash className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Financial</span>}
                   {isOpen && <FaAngleDown className={`ml-2 transition-transform duration-300 ${openDropdown === 3 ? 'rotate-180' : ''}`} />}
                 </div>
@@ -121,27 +121,33 @@ const Sidebar = ({toggle}) => {
               </li>
               <li className="group">
                 <div onClick={() => handleDropdownClick(4)} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <GiAchievement  className="mr-2 text-4xl" />
+                  <GiAchievement  className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Manage Achiever</span>}
                   {isOpen && <FaAngleDown className={`ml-2 transition-transform duration-300 ${openDropdown === 4 ? 'rotate-180' : ''}`} />}
                 </div>
               </li>
               <li className="group">
                 <div onClick={() => handleDropdownClick(5)} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <FaPhotoFilm className="mr-2 text-4xl" />
+                  <FaPhotoFilm className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Banner</span>}
                   {isOpen && <FaAngleDown className={`ml-2 transition-transform duration-300 ${openDropdown === 5 ? 'rotate-180' : ''}`} />}
                 </div>
               </li>
               <li className="group " onClick={()=>{navigate('/dashboard/admin/all-products')}}>
                 <div onClick={() => handleDropdownClick(0)} className="flex  items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <MdOutlineSettingsInputSvideo   className="mr-2 text-4xl" />
+                  <MdOutlineSettingsInputSvideo   className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Products</span>}
+                </div>
+              </li>
+              <li className="group " onClick={()=>{navigate('/dashboard/admin/change-password')}}>
+                <div className="flex  items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
+                  <MdOutlineSettingsInputSvideo   className="mr-2 text-2xl" />
+                  {isOpen && <span className="flex-grow">Change Password</span>}
                 </div>
               </li>
               <li className="group " onClick={handleLogout}>
                 <div className="flex  items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
-                  <MdOutlineSettingsInputSvideo   className="mr-2 text-4xl" />
+                  <MdOutlineSettingsInputSvideo   className="mr-2 text-2xl" />
                   {isOpen && <span className="flex-grow">Logout</span>}
                 </div>
               </li>

@@ -79,7 +79,8 @@ const TeamIncome = () => {
 
                 return (
                   <tr key={index}>
-                    <td className=''>{`${new Date(item.createdAt).toLocaleDateString()}`}</td>
+                    <td className=''>{`${new Date(item.createdAt).toLocaleDateString()} ${new Date(item.createdAt).toLocaleTimeString()}`}</td>
+                    {/* <td className=''>{formattedDate}</td> */}
                     <td>{item.fromUser}</td>
                     <td>{item.level}</td>
                     <td>{item.package}</td>
