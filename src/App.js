@@ -59,6 +59,8 @@ import AllQrRequest from './pages/Admin/AllQrRequest/AllQrRequest.js';
 import Privacy_Policy from './components/Privacy_Policy/Privacy_Policy.js';
 import Salary from './components/salary/salary.js';
 import ChangePassword from './pages/Admin/ChangePassword/ChangePassword.js';
+import RechargeWithQr from './components/Recharge/RechargeQr.js';
+import ChangeUpi from './pages/Admin/ChangeUPI&Qr/changeUpi.js';
 function App() {
 
   return (
@@ -97,8 +99,9 @@ function App() {
           <Route path='user/game-bonus' element={<GameBonus/>}/>
           <Route path='user/daily-income' element={<DailyIncome/>}/>
           <Route path='user/coin-deposite' element={<DepositForm/>}/>
-          <Route path='user/upi-deposite' element={<PaymentForm/>}/>
-          <Route path='user/qr-deposite' element={<Recharge/>}/>
+          {/* <Route path='user/upi-deposite' element={<PaymentForm/>}/> */}
+          <Route path='user/upi-deposite' element={<Recharge/>}/>
+          <Route path='user/qr-code' element={<RechargeWithQr/>}/>
           <Route path='user/payout' element={<Payout/>}/>
     </Route>
     <Route path="/dashboard" element={<AdminRoute />}>
@@ -109,6 +112,7 @@ function App() {
           <Route path="admin/update-product/:id" element={<UpdateProduct/>} />
           <Route path="admin/all-users" element={<AllUsers />} />
           <Route path="admin/all-paid-users" element={<PaidUsers />} />
+          <Route path="admin/change-upi-qr" element={<ChangeUpi />} />
           <Route path="admin/all-requests" element={<AllRequestList />} />
           <Route path="admin/all-unpaid-users-list" element={<UnpaidUsersList />} />
           <Route path="admin/blocked-users" element={<BlockedUsers />} />

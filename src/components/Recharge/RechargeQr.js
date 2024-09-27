@@ -8,40 +8,24 @@ import { useCurrencyAuth } from '../../context/currency';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Recharge = () => {
+const RechargeWithQr = () => {
   const amounts = [500,2500,5000,7500,10000,25000,50000,100000,500000,1000000,2500000,5000000];
   const [formData, setFormData] = useState({
     userId: '',
     userCode: '',
     amount: '',
     utrNumber: '',
-    type: "UPI Id"
+    type: "Qr Code"
   });
   const [errorMessage, setErrorMessage] = useState('');
   const [auth] = useAuth();
   const [currencyAuth] = useCurrencyAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [upi_id, setUpiId] = useState("");
   const [transactions, setTransactions] = useState([]); // To store transaction history
 
   // const UPI_ID = '9084407032@ptaxis'; // Replace with actual UPI ID
   const UPI_ID = 'sagfjshjsbsvaj@axl'; // Replace with actual UPI ID
-
-  const getUpiId = async() => {
-    try {
-      const result =  await axios.get(`${process.env.REACT_APP_API_URL}/admin/get-upi`);
-      console.log(result.data.name);
-      setUpiId(result.data.name);  
-    } catch (error) {
-      console.log(error);
-      
-    }
-  }
-  
-useEffect(() => {
-  getUpiId();
-},[])
 
   // Function to fetch user transaction history
   const getQrTransactions = async () => {
@@ -57,13 +41,13 @@ useEffect(() => {
 
       if (res.data && res.data.success) {
         let mainData = [];
-        
         for(let i=0;i<res.data.data.length;i++){
-           if(res.data.data[i].type == "UPI Id"){
+           if(res.data.data[i].type == "Qr Code"){
              mainData.push(res.data.data[i]);
            }
         }
         setTransactions(mainData)
+        
       } else {
         toast.error('Failed to load transaction history');
       }
@@ -162,7 +146,7 @@ useEffect(() => {
   };
 
   const generateUPILink = (amount) => {
-    return `upi://pay?pa=${upi_id}&pn=YourName&am=${amount}&cu=INR`;
+    return `upi://pay?pa=${UPI_ID}&pn=YourName&am=${amount}&cu=INR`;
   };
 
   return (
@@ -176,7 +160,7 @@ useEffect(() => {
           >
             <img src="/images/back.png" alt="right arrow" className="w-10 h-10" />
           </div>
-          <h1 className="font-bold text-2xl text-gray-800">UPI Qr-code</h1>
+          <h1 className="font-bold text-2xl text-gray-800">Manuall Qr-code</h1>
           <div></div>
         </header>
 
@@ -209,7 +193,7 @@ useEffect(() => {
 
         {formData.amount && parseFloat(formData.amount) >= 100 && (
           <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
-            <QRCode value={generateUPILink(formData.amount)} size={200} className="mx-auto" />
+            <img src={'/images/qrCode2.png'} size={200} className="mx-auto" />
             <div className="mt-4 text-gray-800">
               <h3 className="text-lg font-semibold">QR Code Payment Instructions</h3>
               <ol className="list-decimal list-inside">
@@ -285,4 +269,4 @@ useEffect(() => {
   );
 };
 
-export default Recharge;
+export default RechargeWithQr;

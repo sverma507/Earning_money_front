@@ -37,14 +37,7 @@ const Deposite = () => {
 
           {/* Payment Buttons */}
           <div className="flex justify-between mt-4 gap-3">
-            <button
-              onClick={() =>
-                navigate('/users/user/coin-deposite', { state: { data: amount } })
-              }
-              className="flex-1 p-4 bg-gradient-to-r from-green-400 to-teal-500 text-white font-bold rounded-lg shadow-md transform hover:scale-105 transition-transform"
-            >
-              Crypto
-            </button>
+            
 
             <button
               onClick={() =>
@@ -57,7 +50,7 @@ const Deposite = () => {
 
             <button
               onClick={() =>
-                navigate('/users/user/qr-deposite', { state: { data: amount } })
+                navigate('/users/user/qr-code', { state: { data: amount } })
               }
               className="flex-1 p-4 bg-gradient-to-r from-green-400 to-teal-500 text-white font-bold rounded-lg shadow-md transform hover:scale-105 transition-transform"
             >

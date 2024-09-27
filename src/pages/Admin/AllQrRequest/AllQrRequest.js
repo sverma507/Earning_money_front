@@ -529,6 +529,9 @@ const AllQRPaymentRequests = () => {
                   Amount
                 </th>
                 <th className="py-3 px-4 border-b text-center text-gray-600">
+                  Type
+                </th>
+                <th className="py-3 px-4 border-b text-center text-gray-600">
                   Status
                 </th>
                 {filterStatus === "Processing" && (
@@ -567,6 +570,9 @@ const AllQRPaymentRequests = () => {
                       </td>
                       <td className="py-2 px-4 border-b text-center">
                         ₹{transaction.amount}
+                      </td>
+                      <td className="py-2 px-4 border-b text-center">
+                        {transaction.type}
                       </td>
                       <td
                         className={`py-2 px-4 border-b text-center ${

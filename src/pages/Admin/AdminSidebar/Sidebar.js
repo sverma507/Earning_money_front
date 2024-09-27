@@ -139,6 +139,12 @@ const Sidebar = ({toggle}) => {
                   {isOpen && <span className="flex-grow">Products</span>}
                 </div>
               </li>
+              <li className="group " onClick={()=>{navigate('/dashboard/admin/change-upi-qr')}}>
+                <div onClick={() => handleDropdownClick(0)} className="flex  items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
+                  <MdOutlineSettingsInputSvideo   className="mr-2 text-2xl" />
+                  {isOpen && <span className="flex-grow">Update UPI</span>}
+                </div>
+              </li>
               <li className="group " onClick={()=>{navigate('/dashboard/admin/change-password')}}>
                 <div className="flex  items-center px-4 py-2 cursor-pointer hover:bg-gray-700">
                   <MdOutlineSettingsInputSvideo   className="mr-2 text-2xl" />

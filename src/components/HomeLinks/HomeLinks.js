@@ -13,7 +13,7 @@ function HomeLinks() {
     {
       img: require("./recharge.png"),
       name: "Recharge",
-      link: '/users/user/qr-deposite'
+      link: '/users/user/recharge'
     },
     {
       img: require("./wallet.png"),

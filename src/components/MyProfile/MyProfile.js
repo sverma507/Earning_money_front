@@ -138,7 +138,7 @@ function MyProfile() {
             data-aos="fade-down"
             className="text-center cursor-pointer   "
             onClick={() => {
-              navigate("/users/user/qr-deposite");
+              navigate("/users/user/recharge");
             }}
           >
             <img
