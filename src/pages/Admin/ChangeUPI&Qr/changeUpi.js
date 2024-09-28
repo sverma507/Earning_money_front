@@ -61,6 +61,7 @@ const ChangeUpi = () => {
 
   const handleChangeQr = async (e) => {
     e.preventDefault();
+    toast.success("We are working on this! Sorry for the inconvenience")
     //   try {
     //     const response = await axios.put(
     //       `${process.env.REACT_APP_API_URL}/admin/change-password`,
