@@ -322,10 +322,10 @@ console.log("hello=>",selectedTransactions);
                         ₹{transaction.amount}
                       </td>
                       <td className="py-2 px-4 border-b text-center">
-                       5%
+                       10%
                       </td>
                       <td className="py-2 px-4 border-b text-center">
-                        ₹{transaction.amount-(transaction.amount*5)/100}
+                        ₹{transaction.amount-(transaction.amount*10)/100}
                       </td>
                       <td className="py-2 px-4 border-b text-center">
                         {transaction.accountNumber}
