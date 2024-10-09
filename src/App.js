@@ -88,7 +88,7 @@ function App() {
           <Route path="user/my-products" element={<MyProjects />} />
           <Route path="user/forgot-password" element={<ForgotPassword />} />
           <Route path="user/modify-password" element={<ForgotPassword />} />
-          <Route path="user/withdrawl" element={<WithdrawalForm />} />
+          {/* <Route path="user/withdrawl" element={<WithdrawalForm />} /> */}
           <Route path="user/make-payment" element={<BindBankCard />} />
           <Route path='user/spin-game' element={<SpinGame/>}/>
           <Route path='user/rocket-game' element={<RocketGame/>}/>

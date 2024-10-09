@@ -4,6 +4,7 @@ import './HomeLinks.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useCurrencyAuth } from '../../context/currency';
+import toast, { Toaster } from 'react-hot-toast';
 
 function HomeLinks() {
   const navigate = useNavigate();
@@ -30,7 +31,6 @@ function HomeLinks() {
       name: "Receive Profit",
       link: '/users/user/my-products'
     },
-   
     {
       img: require("./my-team.png"),
       name: "My Team",
@@ -53,11 +53,18 @@ function HomeLinks() {
     },
   ];
 
-
   const handleCurrency = (event) => {
     setCurrencyAuth(event.target.value); // Set the new currency value
     localStorage.setItem('currency', event.target.value); // Update local storage
-  }
+  };
+
+  const handleClick = (item) => {
+    if (item.name === "Withdrawl") {
+      toast.error("Technical issue. We are updating something for your better experience!");
+    } else {
+      navigate(item.link);
+    }
+  };
 
   useEffect(() => {
     AOS.init();
@@ -65,6 +72,7 @@ function HomeLinks() {
 
   return (
     <div className="homelinkbg  shadow-lg shadow-blue-500   p-4">
+      <Toaster/>
       <div className='flex gap-2'>
         <div data-aos="flip-right" className='flex gap-1 w-[100%] text-black text-sm text-center mt-3 bg-slate-300 p-2 rounded'>
           📢 
@@ -80,16 +88,12 @@ function HomeLinks() {
             </p>
           </div>
         </div>
-        {/* <select className='h-[37px] mt-[12px] text-black' value={currencyAuth} onChange={handleCurrency}>
-          <option value="INR">INR</option>
-          <option value="USD">USD</option>
-        </select> */}
       </div>
       <div className='grid grid-cols-4'>
         {data.map((item, idx) => (
           <div 
             key={idx} 
-            onClick={() => navigate(item.link)} 
+            onClick={() => handleClick(item)} 
             className="flex cursor-pointer flex-col m-1 mt-6  items-center"
           >
             <img data-aos="fade-up-right"

@@ -1,90 +1,94 @@
-import React, { useEffect, useState } from 'react';
-import Layout from '../Layout';
-import SubmittingButton from '../SubmittingButton/SubmittingButton';
-import axios from 'axios';
-import { useAuth } from '../../context/auth';
-import { toast, ToastContainer } from 'react-toastify';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useCurrencyAuth } from '../../context/currency';
+import React, { useEffect, useState } from "react";
+import Layout from "../Layout";
+import SubmittingButton from "../SubmittingButton/SubmittingButton";
+import axios from "axios";
+import { useAuth } from "../../context/auth";
+import { toast, ToastContainer } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCurrencyAuth } from "../../context/currency";
 
 const WithdrawalForm = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const [data, setData] = useState({
-    accountNumber: '',
-    ifscCode: '',
-    userName: '',
-    amount: '',
+    accountNumber: "",
+    ifscCode: "",
+    userName: "",
+    amount: "",
   });
-  const [loading,setLoading] = useState(false);
-  const [buttonState, setButtonState] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [buttonState, setButtonState] = useState("");
   const [auth] = useAuth();
   const [transactions, setTransactions] = useState([]);
   const navigate = useNavigate();
   const token = auth?.token;
   const [popUp, setPopUp] = useState(false);
-  const [hide,setHide]=useState(false);
-  const [swallet,setSWallet]=useState('');
+  const [hide, setHide] = useState(false);
+  const [swallet, setSWallet] = useState("");
   // const [wallet,setWallet]=useState(0);
   const location = useLocation();
   const [currencyAuth, setCurrencyAuth] = useCurrencyAuth();
 
   const getAccountDetails = async () => {
-    setButtonState('loading');
+    setButtonState("loading");
     const token = auth.token;
     const userId = auth?.user.id;
 
     try {
-      const result = await axios.get(`${process.env.REACT_APP_API_URL}/user/get/account-details/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const result = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/get/account-details/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       // console.log("reult.wallet=>",result.data);
-      
+
       // setWallet(result.data.wallet||0);
       setData((prev) => ({
         ...prev,
-        accountNumber: result.data.accountNumber || '',
-        ifscCode: result.data.ifscCode || '',
-        userName: result.data.userName || '',
+        accountNumber: result.data.accountNumber || "",
+        ifscCode: result.data.ifscCode || "",
+        userName: result.data.userName || "",
       }));
 
-      setSWallet(result.data.wallet||0)
+      setSWallet(result.data.wallet || 0);
 
       if (!result.data.accountNumber) {
         setIsOpen(true); // Open the modal if no account details are found
       }
-      setButtonState('');
+      setButtonState("");
     } catch (error) {
-      toast.error('Failed to fetch account details');
-      setButtonState('');
+      toast.error("Failed to fetch account details");
+      setButtonState("");
     }
   };
 
-
   const getTransactions = async () => {
     try {
-        const userId = auth?.user.id;
-        const endpoint = `/user/withdraw-transactions/${userId}`;
+      const userId = auth?.user.id;
+      const endpoint = `/user/withdraw-transactions/${userId}`;
 
-        const result = await axios.get(`${process.env.REACT_APP_API_URL}${endpoint}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
+      const result = await axios.get(
+        `${process.env.REACT_APP_API_URL}${endpoint}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-        console.log("transactions=>", result.data);
+      console.log("transactions=>", result.data);
 
-        setTransactions(result.data);
-        setLoading(false);
+      setTransactions(result.data);
+      setLoading(false);
     } catch (err) {
-        console.log("Error while getting the transactions", err);
-        setLoading(false);
+      console.log("Error while getting the transactions", err);
+      setLoading(false);
     }
-};
-
+  };
 
   useEffect(() => {
     getAccountDetails();
@@ -103,8 +107,8 @@ const WithdrawalForm = () => {
   };
 
   const handleBankDetailsSubmit = async (e) => {
-    e.preventDefault(); 
-    setButtonState('loading');
+    e.preventDefault();
+    setButtonState("loading");
     const token = auth.token;
     const userId = auth?.user.id;
 
@@ -114,66 +118,72 @@ const WithdrawalForm = () => {
         data,
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
       );
 
-      toast.success(result.data.message || 'Account details updated successfully');
-      setButtonState('validate');
+      toast.success(
+        result.data.message || "Account details updated successfully"
+      );
+      setButtonState("validate");
       setTimeout(() => {
-        setButtonState('');
-        setIsOpen(false); 
+        setButtonState("");
+        setIsOpen(false);
       }, 1250);
     } catch (error) {
-      toast.error(error.response?.data?.error || 'Failed to update account details');
-      setButtonState('');
+      toast.error(
+        error.response?.data?.error || "Failed to update account details"
+      );
+      setButtonState("");
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(swallet <= 0){
-       toast('Insufficient Balance');
-    }
-    
-    else{
+    if (swallet <= 0) {
+      toast("Insufficient Balance");
+    } else {
       if (!data.accountNumber || !data.ifscCode || !data.userName) {
         setIsOpen(true); // Open the modal to bind bank details
       } else if (!data.amount) {
-        toast.error('Please enter the withdrawal amount');
+        toast.error("Please enter the withdrawal amount");
       } else {
         const token = auth.token;
         const userId = auth?.user.id;
         const allData = { ...data, userId };
         setLoading(true);
         try {
-          const response = await axios.post(`${process.env.REACT_APP_API_URL}/payment/withdrw-payment-request`,
+          const response = await axios.post(
+            `${process.env.REACT_APP_API_URL}/payment/withdrw-payment-request`,
             allData,
             {
               headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
               },
             }
           );
-  
-          toast.success(response.data.message || 'Withdrawal request submitted successfully');
+
+          toast.success(
+            response.data.message || "Withdrawal request submitted successfully"
+          );
           setLoading(false);
           setPopUp(true);
         } catch (error) {
-          toast.error(error.response?.data?.error || 'Failed to submit withdrawal request');
+          toast.error(
+            error.response?.data?.error || "Failed to submit withdrawal request"
+          );
           setLoading(false);
         }
       }
     }
-    
   };
 
   return (
-    <Layout title={'Withdrawl - Earning Money'}>
-      <ToastContainer/>
+    <Layout title={"Withdrawl - Earning Money"}>
+      <ToastContainer />
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm p-4">
           <div className="bg-yellow-300 bg-opacity-50 backdrop-blur-2xl text-white rounded-lg shadow-lg w-full sm:w-2/6">
@@ -190,7 +200,8 @@ const WithdrawalForm = () => {
               <div className="p-6">
                 <div className="mb-4">
                   <label className="block text-sm font-medium mb-4">
-                    Account Number <span className="text-red-500 text-lg">*</span>
+                    Account Number{" "}
+                    <span className="text-red-500 text-lg">*</span>
                   </label>
                   <input
                     onChange={handleChange}
@@ -216,7 +227,8 @@ const WithdrawalForm = () => {
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-medium mb-2">
-                    Bank Account User Name <span className="text-red-500 text-lg">*</span>
+                    Bank Account User Name{" "}
+                    <span className="text-red-500 text-lg">*</span>
                   </label>
                   <input
                     onChange={handleChange}
@@ -236,35 +248,52 @@ const WithdrawalForm = () => {
         </div>
       )}
 
-       {popUp && (
+      {popUp && (
         <div className="fixed md:w-[40%] m-auto inset-0 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm p-4">
-           <div className='md:w-[80%] text-center text-white m-auto border bg-black p-10'>
+          <div className="md:w-[80%] text-center text-white m-auto border bg-black p-10">
             <button
-                  onClick={onClosePopUp}
-                  className="float-right text-white hover:text-gray-400 bg-gray-600 p-2"
-                >
-                  X
-                </button>
-            <h2 className='text-center mt-[70px] text-white'>Withdrawl Request Created</h2>
-            <p className='mt-4'>Your withdrawal amount will be credit to your account within 24-72 hours</p>
-           </div>
+              onClick={onClosePopUp}
+              className="float-right text-white hover:text-gray-400 bg-gray-600 p-2"
+            >
+              X
+            </button>
+            <h2 className="text-center mt-[70px] text-white">
+              Withdrawl Request Created
+            </h2>
+            <p className="mt-4">
+              Your withdrawal amount will be credit to your account within 24-72
+              hours
+            </p>
+          </div>
         </div>
       )}
 
-
       <div className="sm:w-2/5 mx-auto text-white min-h-screen pb-16 bg-gradient-to-b from-purple-500 to-blue-400 p-6 rounded-md shadow-md">
         <header className="flex justify-between items-center p-2 rounded-t-lg">
-          <div className="cursor-pointer font-bold text-lg" onClick={() => navigate(-1)}><img
-                  src={"/images/back.png"}
-                  alt="right arrow"
-                  className="w-10 h-10"
-                /></div>
+          <div
+            className="cursor-pointer font-bold text-lg"
+            onClick={() => navigate(-1)}
+          >
+            <img
+              src={"/images/back.png"}
+              alt="right arrow"
+              className="w-10 h-10"
+            />
+          </div>
           <h1 className="font-bold text-2xl font-serif">Withdraw</h1>
           <div></div>
         </header>
         {/* <div>{wallet}</div> */}
-        <div>Available Wallet Ballance:{currencyAuth==='INR' ? `Rs.${swallet}` :`$${Math.floor(swallet/90)}`}</div>
-        <div className='text-sm'><span className='text-red-700 text-lg'>Note:</span>You can only withdrawl the amount like 100, 200, 300,.....100X</div>
+        <div>
+          Available Wallet Ballance:
+          {currencyAuth === "INR"
+            ? `Rs.${swallet}`
+            : `$${Math.floor(swallet / 90)}`}
+        </div>
+        <div className="text-sm">
+          <span className="text-red-700 text-lg">Note:</span>You can only
+          withdrawl the amount like 100, 200, 300,.....100X
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-white mb-2 mt-4">Bank account</label>
@@ -309,8 +338,9 @@ const WithdrawalForm = () => {
             />
           </div>
           <div className="mb-4">
-            {data.accountNumber ? ""
-             : (
+            {data.accountNumber ? (
+              ""
+            ) : (
               <button
                 type="button"
                 onClick={() => setIsOpen(true)}
@@ -325,44 +355,50 @@ const WithdrawalForm = () => {
               type="submit"
               className="w-full bg-green-600 text-white py-2 rounded-md"
             >
-              {loading ? 'Processing...' : 'Withdraw Now'}
+              {loading ? "Processing..." : "Withdraw Now"}
             </button>
           </div>
         </form>
-        <div className='mt-10'>
-          <h2 className='text-center text-white'>Withdrawl Hoistory</h2>
+        <div className="mt-10">
+          <h2 className="text-center text-white">Withdrawl Hoistory</h2>
           {loading ? (
-                    <p className="text-center">Loading...</p>
+            <p className="text-center">Loading...</p>
+          ) : (
+            <table className="min-w-full bg-gradient-to-b mt-6 from-green-400 to-blue-400">
+              <thead>
+                <tr>
+                  <th className="py-2">Sr#</th>
+                  <th className="py-2">Date</th>
+                  <th className="py-2">Amount</th>
+                  <th className="py-2">Withdrawl Charge</th>
+                  <th className="py-2">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {transactions.length > 0 ? (
+                  transactions.map((transaction, index) => (
+                    <tr key={transaction._id}>
+                      <td className="py-2 text-center">{index + 1}</td>
+                      <td className="py-2 text-center">
+                        {new Date(transaction.createdAt).toLocaleDateString()}
+                      </td>
+                      <td className="py-2 text-center">{transaction.amount}</td>
+                      <td className="py-2 text-center">10%</td>
+                      <td className="py-2 text-center">
+                        {transaction.paymentStatus}
+                      </td>
+                    </tr>
+                  ))
                 ) : (
-                    <table className="min-w-full bg-gradient-to-b mt-6 from-green-400 to-blue-400">
-                        <thead>
-                            <tr>
-                                <th className="py-2">Sr#</th>
-                                <th className="py-2">Date</th>
-                                <th className="py-2">Amount</th>
-                                <th className="py-2">Withdrawl Charge</th>
-                                <th className="py-2">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {transactions.length > 0 ? (
-                                transactions.map((transaction, index) => (
-                                    <tr key={transaction._id}>
-                                        <td className="py-2 text-center">{index + 1}</td>
-                                        <td className="py-2 text-center">{new Date(transaction.createdAt).toLocaleDateString()}</td>
-                                        <td className="py-2 text-center">{transaction.amount}</td>
-                                        <td className="py-2 text-center">10%</td>
-                                        <td className="py-2 text-center">{transaction.paymentStatus}</td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan="4" className="text-center py-4">No transactions found</td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                  <tr>
+                    <td colSpan="4" className="text-center py-4">
+                      No transactions found
+                    </td>
+                  </tr>
                 )}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
     </Layout>

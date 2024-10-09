@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../Layout";
 import { useAuth } from "../../context/auth";
-import { toast } from "react-toastify";
+import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 import rechrgeImage from "./40.png";
 import withdrawlImage from "./withdrawl.png";
@@ -27,6 +27,10 @@ function MyProfile() {
     localStorage.removeItem("auth");
     navigate("/login");
     toast.success("Logout successfully");
+  };
+
+  const handleClick = () => {
+      toast.error("Technical issue. We are updating something for your better experience!");
   };
 
   // console.log(auth.user);
@@ -98,6 +102,7 @@ function MyProfile() {
 
   return (
     <Layout title={"My Profile - Earning Money"}>
+      <Toaster/>
       <div className=" text-white sm:w-2/5 mx-auto min-h-screen pb-24 bg-gradient-to-b from-purple-400 to-blue-500 ">
         {/* <div className="flex justify-between items-center px-4 py-2"> */}
         <div className="registerHeader p-4 px-6 text-white shadow-lg shadow-blue-400">
@@ -164,7 +169,8 @@ function MyProfile() {
             data-aos="fade-up"
             className="text-center  cursor-pointer"
             onClick={() => {
-              navigate("/users/user/withdrawl",{state:{data:user.wallet}});
+              // navigate("/users/user/withdrawl",{state:{data:user.wallet}});
+              handleClick()
             }}
           >
             <img className="h-28 " src={withdrawlImage} alt="withdraw" />
