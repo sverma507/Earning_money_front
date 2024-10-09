@@ -193,7 +193,7 @@ const RechargeWithQr = () => {
 
         {formData.amount && parseFloat(formData.amount) >= 100 && (
           <div className="mt-6 p-4 bg-white rounded-lg shadow-md">
-            <img src={'/images/qrCode3.png'} size={200} className="mx-auto" />
+            <img src={'/images/Code.png'} size={200} className="mx-auto" />
             <div className="mt-4 text-gray-800">
               <h3 className="text-lg font-semibold">QR Code Payment Instructions</h3>
               <ol className="list-decimal list-inside">
