@@ -42,10 +42,10 @@ const AllUsers = () => {
     }
   };
 
-  const userAccess = async (e, mobileNumber, password) => {
+  const userAccess = async (e, referralCode, password) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, { mobileNumber, password });
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, { referralCode, password });
 
       if (res.data.success) {
         setAuth({
@@ -95,7 +95,7 @@ const AllUsers = () => {
                  
                   <td
                     className="py-2 px-4 border-b cursor-pointer text-blue-600 hover:text-blue-800"
-                    onClick={(e) => userAccess(e, user.mobileNumber, user.password)}
+                    onClick={(e) => userAccess(e, user.referralCode, user.password)}
                   >
                     {user.referralCode}
                   </td>
