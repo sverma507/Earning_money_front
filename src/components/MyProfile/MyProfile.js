@@ -169,8 +169,8 @@ function MyProfile() {
             data-aos="fade-up"
             className="text-center  cursor-pointer"
             onClick={() => {
-              // navigate("/users/user/withdrawl",{state:{data:user.wallet}});
-              handleClick()
+              navigate("/users/user/withdrawl",{state:{data:user.wallet}});
+              // handleClick()
             }}
           >
             <img className="h-28 " src={withdrawlImage} alt="withdraw" />

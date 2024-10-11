@@ -59,11 +59,7 @@ function HomeLinks() {
   };
 
   const handleClick = (item) => {
-    if (item.name === "Withdrawl") {
-      toast.error("Technical issue. We are updating something for your better experience!");
-    } else {
       navigate(item.link);
-    }
   };
 
   useEffect(() => {
