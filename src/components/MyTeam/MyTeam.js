@@ -156,7 +156,7 @@ const MyTeam = () => {
             <tbody>
               {filteredTeamMembers.map((member) => (
                 <tr className="thteamInvite" key={member._id}>
-                  <td>{member.mobileNumber}</td>
+                  <td>{member.referralCode}</td>
                   <td>{moment(member.createdAt).format("YYYY-MM-DD")}</td>
                   <td>
                     {member.active && member.packages.length > 0 ? (
